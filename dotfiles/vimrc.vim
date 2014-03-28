@@ -74,6 +74,6 @@ if has("gui_running")
     set foldlevelstart=99
     set foldlevel=99
 
-    set guifont=Droid\ Sans\ Mono:h24
+    set guifont=Droid\ Sans\ Mono:h13
     autocmd! GUIEnter * set vb t_vb=
 endif
