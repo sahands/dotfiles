@@ -31,3 +31,6 @@
 [submodule "dotfiles/vim/bundle/colorschemes"]
 	path = dotfiles/vim/bundle/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "utils/duti"]
+	path = utils/duti
+	url = https://github.com/moretension/duti.git

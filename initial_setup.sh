@@ -108,3 +108,13 @@ for P in pelican pep8 flake8 jedi pymongo nltk
 do
     pip_install $P
 done
+
+
+# Install duti
+cd utils/duti
+./configure
+make
+sudo make install
+make clean
+cd ../..
+

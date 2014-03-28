@@ -10,6 +10,7 @@ else
     DIR=${1##*/}
     DIR=${DIR%.git}
     echo "Adding $DIR as an external repository."
-    echo "dotfiles/vim/bundle/$DIR = [git]$1" >> .hgsub
+    echo "git submodule add $1 dotfiles/vim/bundle/$DIR" >> submodules.sh
+    git submodule add $1 dotfiles/vim/bundle/$DIR
     echo "Done."
 fi

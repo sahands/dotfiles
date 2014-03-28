@@ -63,4 +63,5 @@ shopt -s globstar
 
 PS1="[\\A] \\w $ "
 
-
+# Run duti with ~/.duti file as settings
+duti ~/.duti

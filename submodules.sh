@@ -10,3 +10,4 @@ git submodule add git://github.com/tpope/vim-surround.git dotfiles/vim/bundle/vi
 git submodule add https://github.com/scrooloose/syntastic.git dotfiles/vim/bundle/syntastic
 git submodule add https://github.com/davidhalter/jedi-vim.git dotfiles/vim/bundle/jedi-vim
 git submodule add https://github.com/flazz/vim-colorschemes.git dotfiles/vim/bundle/colorschemes
+git submodule add https://github.com/moretension/duti.git utils/duti
