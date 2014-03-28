@@ -1,4 +1,3 @@
-git submodule add git://github.com/jquery/jquery.git externals/jquery 
 git submodule add https://github.com/moll/vim-node.git dotfiles/vim/bundle/vim-node 
 git submodule add https://github.com/vim-scripts/pep8.git dotfiles/vim/bundle/pep8
 git submodule add https://github.com/Rykka/riv.vim.git dotfiles/vim/bundle/riv.vim
