@@ -51,6 +51,10 @@ do
     port_install $P
 done
 
+# Replace default bash with latest version of bash
+sudo mv /bin/bash /bin/bash-old
+sudo ln -s /bin/bash /opt/local/bin/bash
+
 
 ./hr
 echo "Checking port variants."

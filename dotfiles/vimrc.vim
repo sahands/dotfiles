@@ -1,6 +1,18 @@
 execute pathogen#infect()
 syntax on
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smarttab
+set noswapfile
+
+filetype indent on
+filetype on
+
 if has("gui_running")
     set hlsearch
     " colorscheme distinguished
@@ -11,16 +23,6 @@ if has("gui_running")
     " colorscheme hybrid
     " colorscheme inkpot
     set bg=dark    " Setting dark mode
-    set tabstop=4
-    set shiftwidth=4
-    set expandtab
-    set shiftwidth=4
-    set softtabstop=4
-    set autoindent
-    set smarttab
-    set noswapfile
-    filetype indent on
-    filetype on
     filetype plugin on
     set bs=2
     set ai
