@@ -95,7 +95,7 @@ done
 
 
 # Utils
-for P in wget sudo grep man coreutils ispell s3cmd mongodb
+for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap
 do
     port_install $P
 done
