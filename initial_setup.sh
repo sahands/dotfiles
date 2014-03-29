@@ -75,7 +75,7 @@ sudo cat $VARIANTS_FILE
 ./hr
 
 
-for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy
+for P in pip ipython numpy matplotlib pep8 flake8 jedi pandas scikit-learn scipy 
 do
     port_install py${PY}-$P
 done
@@ -108,7 +108,7 @@ done
 
 
 # pip installs
-for P in pelican pep8 flake8 jedi pymongo nltk
+for P in pelican pep8 flake8 jedi pymongo nltk vincent
 do
     pip_install $P
 done
