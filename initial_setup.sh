@@ -24,6 +24,13 @@ mkdir -p logs/pip
 mkdir -p logs/port
 
 
+# Install HR
+cd utils/hr
+make install
+cd ../..
+
+# Functions to install port and pip packages
+
 function port_install {
     FILE=logs/port/${1}.log 
     port install $1 2> $FILE > $FILE
@@ -51,6 +58,11 @@ function pip_install {
 }
 
 
+# Update port
+port selfupdate
+
+# Install bash and zsh
+
 for P in bash bash-completion zsh zsh-completions python${PY} 
 do
     port_install $P
@@ -58,10 +70,10 @@ done
 
 # Replace default bash with latest version of bash
 mv /bin/bash /bin/bash-old
-ln -s /bin/bash /opt/local/bin/bash
+ln -s /opt/local/bin/bash /bin/bash
 
 
-./hr
+hr
 echo "Checking port variants."
 for VARIANT in bash_completion zsh_completion python${PY} svn
 do
@@ -75,7 +87,7 @@ do
 done
 echo "Active port variants:"
 cat $VARIANTS_FILE
-./hr
+hr
 
 
 for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy
@@ -84,11 +96,11 @@ do
 done
 
 # Select port's python
-./hr
+hr
 port select --set python python${PY}
 port select --set pip pip${PY}
 port select --set ipython ipython${PY}
-./hr
+hr
 
 # Essentials
 for P in macvim git-core mercurial
