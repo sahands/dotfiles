@@ -19,6 +19,11 @@ function ctrl_c() {
     exit
 }
 
+
+# Pull all git submodules
+git submodule foreach git pull -q origin master > /dev/null
+
+
 # Make sure logs dirs are there
 mkdir -p logs/pip
 mkdir -p logs/port
@@ -26,7 +31,7 @@ mkdir -p logs/port
 
 # Install HR
 cd utils/hr
-make install
+make install > /dev/null 2> /dev/null
 cd ../..
 
 # Functions to install port and pip packages
@@ -131,9 +136,10 @@ done
 
 # Install duti
 cd utils/duti
-./configure
-make
-make install
-make clean
+autoconf ./configure.ac > configure 2> /dev/null
+chmod +x configure > /dev/null 2> /dev/null
+./configure > /dev/null 2> /dev/null
+make > /dev/null 2> /dev/null
+make install > /dev/null 2> /dev/null
+make clean > /dev/null 2> /dev/null
 cd ../..
-
