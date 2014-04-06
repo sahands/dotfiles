@@ -20,10 +20,6 @@ function ctrl_c() {
 }
 
 
-# Pull all git submodules
-git submodule foreach git pull -q origin master > /dev/null
-
-
 # Make sure logs dirs are there
 mkdir -p logs/pip
 mkdir -p logs/port
@@ -35,8 +31,8 @@ cd utils/hr
 make install > /dev/null 2> /dev/null
 cd ../..
 
-# Functions to install port and pip packages
 
+# Functions to install port and pip packages
 function port_install {
     FILE=logs/port/${1}.log 
     port install $1 2> $FILE > $FILE
