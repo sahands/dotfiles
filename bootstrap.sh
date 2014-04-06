@@ -30,6 +30,7 @@ mkdir -p logs/port
 
 
 # Install HR
+echo "Installing hr..."
 cd utils/hr
 make install > /dev/null 2> /dev/null
 cd ../..
@@ -135,6 +136,7 @@ done
 
 
 # Install duti
+echo "Installing duti..."
 cd utils/duti
 autoconf ./configure.ac > configure 2> /dev/null
 chmod +x configure > /dev/null 2> /dev/null
