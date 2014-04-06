@@ -34,3 +34,6 @@
 [submodule "utils/duti"]
 	path = utils/duti
 	url = https://github.com/moretension/duti.git
+[submodule "utils/hr"]
+	path = utils/hr
+	url = git@github.com:sahands/hr.git

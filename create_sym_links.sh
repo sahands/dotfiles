@@ -1,4 +1,4 @@
-#!/opt/local/bin/bash
+#!/usr/bin/env bash
 
 SCRIPT=`greadlink -f $0`
 SCRIPTPATH=`dirname $SCRIPT`
