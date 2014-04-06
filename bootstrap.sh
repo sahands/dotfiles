@@ -5,7 +5,7 @@ PY=27
 VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
 
 SCRIPT_DIR=`dirname $0`
-source $SCRIPT_DIR/utils.sh
+source $SCRIPT_DIR/include.sh
 
 ensure_root
 
