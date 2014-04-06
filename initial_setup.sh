@@ -2,8 +2,13 @@
 
 # Version of Python to use
 PY=27
-
 VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
+
+# Make sure it's run as root
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
 
 # Trap Control + C and exit the whole script
 trap ctrl_c INT
@@ -21,11 +26,11 @@ mkdir -p logs/port
 
 function port_install {
     FILE=logs/port/${1}.log 
-    sudo port install $1 2> $FILE > $FILE
+    port install $1 2> $FILE > $FILE
     if [ $? -eq 0 ]
     then
         echo -n "port - installed $1 "
-        sudo port list $1 2> /dev/null | awk -F' ' '{print $2}' 
+        port list $1 2> /dev/null | awk -F' ' '{print $2}' 
         rm $FILE 2> /dev/null
     else
         echo "Error installing $1 - see $FILE"
@@ -34,11 +39,11 @@ function port_install {
 
 function pip_install {
     FILE=logs/pip/${1}.log 
-    sudo pip install $1 --upgrade 2> $FILE > $FILE
+    pip install $1 --upgrade 2> $FILE > $FILE
     if [ $? -eq 0 ]
     then
         echo -n "pip - installed $1 @"
-        sudo pip show $1 2> /dev/null | grep "Version:" | awk -F': ' '{print $2}'
+        pip show $1 2> /dev/null | grep "Version:" | awk -F': ' '{print $2}'
         rm $FILE 2> /dev/null
     else
         echo "Error installing $1 - see $FILE"
@@ -52,8 +57,8 @@ do
 done
 
 # Replace default bash with latest version of bash
-sudo mv /bin/bash /bin/bash-old
-sudo ln -s /bin/bash /opt/local/bin/bash
+mv /bin/bash /bin/bash-old
+ln -s /bin/bash /opt/local/bin/bash
 
 
 ./hr
@@ -65,13 +70,11 @@ do
     then
         echo "Variant +$VARIANT not found in $VARIANTS_FILE."
         echo "Adding it."
-        # bash -C '\''sudo echo'$VARIANT'>>'$VARIANTS_FILE\'
-        # echo "'"'echo "'+$VARIANT'" >> '$VARIANTS_FILE"'"
-        sudo sh -c 'echo "'+$VARIANT'" >> '$VARIANTS_FILE
+        sh -c 'echo "'+$VARIANT'" >> '$VARIANTS_FILE
     fi
 done
 echo "Active port variants:"
-sudo cat $VARIANTS_FILE
+cat $VARIANTS_FILE
 ./hr
 
 
@@ -82,9 +85,9 @@ done
 
 # Select port's python
 ./hr
-sudo port select --set python python${PY}
-sudo port select --set pip pip${PY}
-sudo port select --set ipython ipython${PY}
+port select --set python python${PY}
+port select --set pip pip${PY}
+port select --set ipython ipython${PY}
 ./hr
 
 # Essentials
@@ -95,7 +98,7 @@ done
 
 
 # Utils
-for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap
+for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen
 do
     port_install $P
 done
@@ -118,7 +121,7 @@ done
 cd utils/duti
 ./configure
 make
-sudo make install
+make install
 make clean
 cd ../..
 
