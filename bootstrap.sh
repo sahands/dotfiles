@@ -4,11 +4,10 @@
 PY=27
 VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
 
-# Make sure it's run as root
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
-fi
+SCRIPT_DIR=`dirname $0`
+source $SCRIPT_DIR/utils.sh
+
+ensure_root
 
 # Trap Control + C and exit the whole script
 trap ctrl_c INT
@@ -23,6 +22,7 @@ function ctrl_c() {
 # Make sure logs dirs are there
 mkdir -p logs/pip
 mkdir -p logs/port
+rm logs/*/*.log
 
 
 # Install HR
@@ -32,36 +32,8 @@ make install > /dev/null 2> /dev/null
 cd ../..
 
 
-# Functions to install port and pip packages
-function port_install {
-    FILE=logs/port/${1}.log 
-    port install $1 2> $FILE > $FILE
-    if [ $? -eq 0 ]
-    then
-        echo -n "port - installed $1 "
-        port list $1 2> /dev/null | awk -F' ' '{print $2}' 
-        rm $FILE 2> /dev/null
-    else
-        echo "Error installing $1 - see $FILE"
-    fi
-}
-
-function pip_install {
-    FILE=logs/pip/${1}.log 
-    pip install $1 --upgrade 2> $FILE > $FILE
-    if [ $? -eq 0 ]
-    then
-        echo -n "pip - installed $1 @"
-        pip show $1 2> /dev/null | grep "Version:" | awk -F': ' '{print $2}'
-        rm $FILE 2> /dev/null
-    else
-        echo "Error installing $1 - see $FILE"
-    fi
-}
-
-
 # Update port
-port selfupdate
+# port selfupdate
 
 # Install bash and zsh
 
@@ -92,7 +64,7 @@ cat $VARIANTS_FILE
 hr
 
 
-for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy
+for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo
 do
     port_install py${PY}-$P
 done
@@ -117,15 +89,9 @@ do
     port_install $P
 done
 
-# Latex
-for P in texlive texlive-basic texlive-bibtex-extra texlive-bin texlive-bin texlive-bin-extra texlive-common texlive-context texlive-fonts-recommended texlive-fonts-extra texlive-fontutils texlive-generic-recommended texlive-lang-english texlive-latex texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-math-extra texlive-metapost texlive-pictures texlive-plain-extra texlive-pstricks texlive-science texlive-xetex
-do
-    port_install $P
-done
-
 
 # pip installs
-for P in pelican pep8 flake8 jedi pymongo nltk
+for P in pelican
 do
     pip_install $P
 done
