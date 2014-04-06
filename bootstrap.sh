@@ -64,7 +64,7 @@ cat $VARIANTS_FILE
 hr
 
 
-for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo
+for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo virtualenv
 do
     port_install py${PY}-$P
 done
