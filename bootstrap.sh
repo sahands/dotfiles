@@ -2,6 +2,7 @@
 
 # Version of Python to use
 PY=27
+PYV="2.7"
 VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
 
 SCRIPT_DIR=`dirname $0`
@@ -64,7 +65,7 @@ cat $VARIANTS_FILE
 hr
 
 
-for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo virtualenv
+for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo virtualenv pygments
 do
     port_install py${PY}-$P
 done
@@ -74,6 +75,13 @@ hr
 port select --set python python${PY}
 port select --set pip pip${PY}
 port select --set ipython ipython${PY}
+port select --set pep8 pep8${PY}
+port select --set virtualenv virtualenv${PY}
+port select --set pyflakes py${PY}-pyflakes
+
+echo "Creating some shortcuts..."
+ln -s /opt/local/bin/flake8-${PYV} /opt/local/bin/flake8
+ln -s /opt/local/bin/pygmentize-${PYV} /opt/local/bin/pygmentize
 hr
 
 # Essentials
