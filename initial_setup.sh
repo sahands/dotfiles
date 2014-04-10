@@ -75,7 +75,7 @@ sudo cat $VARIANTS_FILE
 ./hr
 
 
-for P in pip ipython numpy matplotlib pep8 flake8 jedi pandas scikit-learn scipy 
+for P in pip ipython numpy matplotlib pep8 flake8 jedi pandas scikit-learn scipy zmq
 do
     port_install py${PY}-$P
 done
@@ -95,7 +95,7 @@ done
 
 
 # Utils
-for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap
+for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap openssl
 do
     port_install $P
 done
