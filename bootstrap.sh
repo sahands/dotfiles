@@ -3,6 +3,8 @@
 # Version of Python to use
 PY=27
 PYV="2.7"
+RUBY=19
+RUBYV="1.9.2"
 VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
 
 SCRIPT_DIR=`dirname $0`
@@ -34,11 +36,11 @@ cd ../..
 
 
 # Update port
-# port selfupdate
+port selfupdate
 
 # Install bash and zsh
 
-for P in bash bash-completion zsh zsh-completions python${PY} 
+for P in bash bash-completion zsh zsh-completions python${PY} ruby${RUBY}
 do
     port_install $P
 done
@@ -50,7 +52,7 @@ ln -s /opt/local/bin/bash /bin/bash
 
 hr
 echo "Checking port variants."
-for VARIANT in bash_completion zsh_completion python${PY} svn
+for VARIANT in bash_completion zsh_completion python${PY} svn ruby${RUBY} gem
 do
     grep "^+$VARIANT$" $VARIANTS_FILE -q
     if [ $? -eq 1 ]
@@ -72,6 +74,7 @@ done
 
 # Select port's python
 hr
+port select --set ruby ruby${RUBY}
 port select --set python python${PY}
 port select --set pip pip${PY}
 port select --set ipython ipython${PY}
