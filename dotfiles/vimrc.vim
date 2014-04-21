@@ -9,6 +9,12 @@ set softtabstop=4
 set autoindent
 set smarttab
 set noswapfile
+set number
+:nnoremap K i<CR><Esc>
+
+
+" hitting escape in command mode will clear last search
+nnoremap <silent> <esc> :noh<cr><esc>
 
 filetype indent on
 filetype on
@@ -33,10 +39,7 @@ if has("gui_running")
     set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
     set list
 
-    :nnoremap K i<CR><Esc>
 
-    " hitting escape in command mode will clear last search
-    nnoremap <silent> <esc> :noh<cr><esc>
 
     " Latex options
     autocmd Filetype tex set textwidth=80
@@ -78,4 +81,10 @@ if has("gui_running")
 
     set guifont=Droid\ Sans\ Mono:h13
     autocmd! GUIEnter * set vb t_vb=
+
+    " Display a ruler at text-width
+    " Nevermind: this looks ugly!
+    " :set colorcolumn=+1        " highlight column after 'textwidth'
+    " :set colorcolumn=+1,+2,+3  " highlight three columns after 'textwidth'
+    " :highlight ColorColumn ctermbg=grey guibg=grey
 endif
