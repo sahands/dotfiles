@@ -1,4 +1,49 @@
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+" scripts on GitHub repos
+Plugin 'moll/vim-node.git'
+Plugin 'vim-scripts/pep8.git'
+Plugin 'Rykka/riv.vim.git'
+Plugin 'godlygeek/tabular.git'
+Plugin 'tomtom/tcomment_vim.git'
+Plugin 'Lokaltog/vim-easymotion.git'
+Plugin 'nvie/vim-flake8.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'davidhalter/jedi-vim.git'
+Plugin 'flazz/vim-colorschemes.git'
+Plugin 'wincent/Command-T'
+Plugin 'Valloric/YouCompleteMe'
+
+" scripts from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Plugin 'FuzzyFinder'
+
+filetype plugin indent on     " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Plugin commands are not allowed.
+" Put your stuff after this line
+
+
+" ----------  end of Vundle setup code -------------
+
 syntax on
 
 set tabstop=4
@@ -16,8 +61,8 @@ set number
 " hitting escape in command mode will clear last search
 nnoremap <silent> <esc> :noh<cr><esc>
 
-filetype indent on
-filetype on
+" filetype indent on
+" filetype on
 
 if has("gui_running")
     set hlsearch
