@@ -1,26 +1,7 @@
 #!/usr/bin/env bash
 
-# Version of Python to use
-PY=27
-PYV="2.7"
-RUBY=19
-RUBYV="1.9.2"
-VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
-
 SCRIPT_DIR=`dirname $0`
 source $SCRIPT_DIR/include.sh
-
-ensure_root
-
-# Trap Control + C and exit the whole script
-trap ctrl_c INT
-
-function ctrl_c() {
-    echo
-    echo "User interrupt. Exiting"
-    exit
-}
-
 
 # Make sure logs dirs are there
 mkdir -p logs/pip
