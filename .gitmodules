@@ -37,3 +37,6 @@
 [submodule "utils/hr"]
 	path = utils/hr
 	url = git@github.com:sahands/hr.git
+[submodule "dotfiles/vim/bundle/vundle"]
+	path = dotfiles/vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
