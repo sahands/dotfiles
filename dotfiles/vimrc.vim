@@ -19,6 +19,9 @@ nnoremap <silent> <esc> :noh<cr><esc>
 filetype indent on
 filetype on
 
+autocmd FileType rst :setlocal spell
+
+
 if has("gui_running")
     set hlsearch
     " colorscheme distinguished
