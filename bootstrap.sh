@@ -1,26 +1,7 @@
 #!/usr/bin/env bash
 
-# Version of Python to use
-PY=27
-PYV="2.7"
-RUBY=19
-RUBYV="1.9.2"
-VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
-
 SCRIPT_DIR=`dirname $0`
 source $SCRIPT_DIR/include.sh
-
-ensure_root
-
-# Trap Control + C and exit the whole script
-trap ctrl_c INT
-
-function ctrl_c() {
-    echo
-    echo "User interrupt. Exiting"
-    exit
-}
-
 
 # Make sure logs dirs are there
 mkdir -p logs/pip
@@ -67,7 +48,7 @@ cat $VARIANTS_FILE
 hr
 
 
-for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo virtualenv pygments zmq nose
+for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo virtualenv pygments zmq nose tz
 do
     port_install py${PY}-$P
 done
@@ -95,7 +76,7 @@ done
 
 
 # Utils
-for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen
+for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen cmake
 do
     port_install $P
 done
@@ -118,3 +99,25 @@ make > /dev/null 2> /dev/null
 make install > /dev/null 2> /dev/null
 make clean > /dev/null 2> /dev/null
 cd ../..
+
+# Install fonts
+echo "Installing fonts..."
+cp fonts/*/*.ttf /Library/Fonts/
+
+# Install Vundle plugins
+echo "Installing MacVim Vundle plugins now."
+mvim +PluginInstall +qall
+
+# Making YouCompleteMe
+echo "Making MacVim plugin YouCompleteMe"
+cd dotfiles/vim/bundle/YouCompleteMe
+./install.sh --clang-completer --omnisharp-completer > /dev/null 2> /dev/null
+
+# Making Command-T
+echo "Making Command-T"
+cd ../Command-T/ruby/commant-t
+ruby extconf.rb > /dev/null 2> /dev/null
+make > /dev/null 2> /dev/null
+
+cd ../../../..
+echo "Done"

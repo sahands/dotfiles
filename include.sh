@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Version of Python to use
+PY=27
+PYV="2.7"
+RUBY=19
+RUBYV="1.9.2"
+VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
+
 # Functions to install port and pip packages
 function port_install {
     FILE=logs/port/${1}.log 
@@ -34,3 +41,14 @@ function ensure_root {
        exit 1
     fi
 }
+
+# Trap Control + C and exit the whole script
+trap ctrl_c INT
+
+function ctrl_c() {
+    echo
+    echo "User interrupt. Exiting"
+    exit
+}
+
+ensure_root
