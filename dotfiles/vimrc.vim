@@ -18,7 +18,6 @@ Plugin 'Lokaltog/vim-easymotion.git'
 Plugin 'nvie/vim-flake8.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'scrooloose/syntastic.git'
-" Plugin 'davidhalter/jedi-vim.git'
 Plugin 'flazz/vim-colorschemes.git'
 Plugin 'wincent/Command-T'
 Plugin 'Valloric/YouCompleteMe'
@@ -110,11 +109,19 @@ if has("gui_running")
     " colorscheme gruvbox
     " colorscheme jellybeans
     " colorscheme busybee
-    colorscheme hybrid
     " colorscheme inkpot
-    set bg=dark    " Setting dark mode
+    " set bg=dark    " Setting dark mode
     " colorscheme solarized
-    " set background=light
+    
+    " Set the theme based on time of day
+    if strftime("%H") < 19 
+        colorscheme solarized
+        set background=light
+    else
+        colorscheme hybrid
+        set background=dark
+    endif
+
     set bs=2
     set ai
     set ruler

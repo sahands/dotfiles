@@ -103,21 +103,4 @@ cd ../..
 # Install fonts
 echo "Installing fonts..."
 cp fonts/*/*.ttf /Library/Fonts/
-
-# Install Vundle plugins
-echo "Installing MacVim Vundle plugins now."
-mvim +PluginInstall +qall
-
-# Making YouCompleteMe
-echo "Making MacVim plugin YouCompleteMe"
-cd dotfiles/vim/bundle/YouCompleteMe
-./install.sh --clang-completer --omnisharp-completer > /dev/null 2> /dev/null
-
-# Making Command-T
-echo "Making Command-T"
-cd ../Command-T/ruby/commant-t
-ruby extconf.rb > /dev/null 2> /dev/null
-make > /dev/null 2> /dev/null
-
-cd ../../../..
-echo "Done"
+cp fonts/*/*.otf /Library/Fonts/
