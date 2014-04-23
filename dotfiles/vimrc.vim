@@ -110,15 +110,13 @@ if has("gui_running")
     " colorscheme jellybeans
     " colorscheme busybee
     " colorscheme inkpot
-    " set bg=dark    " Setting dark mode
-    " colorscheme solarized
+    " colorscheme hybrid
     
+    colorscheme solarized
     " Set the theme based on time of day
-    if strftime("%H") < 19 
-        colorscheme solarized
+    if strftime("%H") < 19  && strftime("%H") > 5
         set background=light
     else
-        colorscheme hybrid
         set background=dark
     endif
 
