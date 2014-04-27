@@ -9,20 +9,30 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " scripts on GitHub repos
-Plugin 'moll/vim-node.git'
-Plugin 'vim-scripts/pep8.git'
+
+" For when I start node programming... if ever!
+" Plugin 'moll/vim-node.git'
+
+" For rst files... Seems a bit buggy right now
 " Plugin 'Rykka/riv.vim.git'
+
+" These are not needed with syntastic
+" Plugin 'vim-scripts/pep8.git'
+" Plugin 'nvie/vim-flake8.git'
+
+" Using solarized for now
+" Plugin 'flazz/vim-colorschemes.git'
+
+Plugin 'scrooloose/syntastic.git'
 Plugin 'godlygeek/tabular.git'
 Plugin 'tomtom/tcomment_vim.git'
 Plugin 'Lokaltog/vim-easymotion.git'
-Plugin 'nvie/vim-flake8.git'
 Plugin 'tpope/vim-surround.git'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'flazz/vim-colorschemes.git'
 Plugin 'wincent/Command-T'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
+
 Plugin 'altercation/vim-colors-solarized'
 
 " scripts from http://vim-scripts.org/vim/scripts.html
