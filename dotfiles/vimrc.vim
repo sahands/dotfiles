@@ -99,7 +99,10 @@ set foldlevelstart=99
 set foldlevel=99
 
 " Enable spell check for some text documents
-autocmd Filetype rst,txt,tex,md setlocal spell spelllang=en_ca
+autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
+autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_ca
+autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_ca
+autocmd Filetype rst setlocal spell spelllang=en_ca
 
 if has("gui_running")
     " colorscheme distinguished
