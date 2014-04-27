@@ -53,11 +53,9 @@ set autoindent
 set smarttab
 set noswapfile
 set number
+
+" Capital K inserts a newline character where you are
 :nnoremap K i<CR><Esc>
-
-
-" hitting escape in command mode will clear last search
-nnoremap <silent> <esc> :noh<cr><esc>
 
 
 " Latex options
@@ -79,31 +77,23 @@ autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <
 " And make a command for it too
 command! DelTrailingSpace :call <SID>StripTrailingWhitespaces()
 
-"autocmd BufWritePre *.py :%s/\s\+$//e 
-
 " Convert $x$ to :math:`x`
 command! Tex2rst :%s/\$\(.\{-}\)\$/:math:`\1`/ge  | :%s/\$\$\(.\{-}\)\$\$/\r\r.. math::\r\r\t\1\r\r/ge
 
-" Disable the bell
-set noerrorbells 
-set novisualbell
-set t_vb=
-
-" F3 will insert current date and time
-nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
-imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-
+"
+" " F3 will insert current date and time
+" nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc>
+" imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+"
 " Disable folding by default
 set nofoldenable 
 set foldlevelstart=99
 set foldlevel=99
 
-
-autocmd FileType rst :setlocal spell
-
+" Enable spell check for some text documents
+autocmd FileType rst,txt,md :setlocal spell
 
 if has("gui_running")
-    set hlsearch
     " colorscheme distinguished
     " colorscheme badwolf
     " colorscheme gruvbox
@@ -111,7 +101,7 @@ if has("gui_running")
     " colorscheme busybee
     " colorscheme inkpot
     " colorscheme hybrid
-    
+
     colorscheme solarized
     " Set the theme based on time of day
     if strftime("%H") < 19  && strftime("%H") > 5
@@ -120,15 +110,25 @@ if has("gui_running")
         set background=dark
     endif
 
+    " Highlight search
+    set hlsearch
     set bs=2
     set ai
     set ruler
     set iskeyword-=_
+
+    " hitting escape in command mode will clear last search
+    nnoremap <silent> <esc> :noh<cr><esc>
 
     " Display invisible characters
     set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
     set list
 
     set guifont=Droid\ Sans\ Mono:h13
+
     autocmd! GUIEnter * set vb t_vb=
 endif
+
+" Disable the bell
+set noerrorbells 
+set t_vb=
