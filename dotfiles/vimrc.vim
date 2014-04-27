@@ -11,7 +11,7 @@ Plugin 'gmarik/vundle'
 " scripts on GitHub repos
 Plugin 'moll/vim-node.git'
 Plugin 'vim-scripts/pep8.git'
-Plugin 'Rykka/riv.vim.git'
+" Plugin 'Rykka/riv.vim.git'
 Plugin 'godlygeek/tabular.git'
 Plugin 'tomtom/tcomment_vim.git'
 Plugin 'Lokaltog/vim-easymotion.git'
@@ -57,10 +57,8 @@ set number
 " Capital K inserts a newline character where you are
 :nnoremap K i<CR><Esc>
 
-
 " Latex options
 autocmd Filetype tex set textwidth=80
-autocmd Filetype tex setlocal spell spelllang=en_ca
 
 " Remap flake8 key
 autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
@@ -86,12 +84,12 @@ command! Tex2rst :%s/\$\(.\{-}\)\$/:math:`\1`/ge  | :%s/\$\$\(.\{-}\)\$\$/\r\r..
 " imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 "
 " Disable folding by default
-set nofoldenable 
+set nofoldenable
 set foldlevelstart=99
 set foldlevel=99
 
 " Enable spell check for some text documents
-autocmd FileType rst,txt,md :setlocal spell
+autocmd Filetype rst,txt,tex,md setlocal spell spelllang=en_ca
 
 if has("gui_running")
     " colorscheme distinguished
@@ -130,5 +128,5 @@ if has("gui_running")
 endif
 
 " Disable the bell
-set noerrorbells 
+set noerrorbells
 set t_vb=
