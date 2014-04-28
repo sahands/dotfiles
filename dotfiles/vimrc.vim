@@ -1,32 +1,33 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Plugin 'gmarik/vundle'                    " Let Vundle manage Vundle, required
-Plugin 'altercation/vim-colors-solarized' " Great color scheme
-Plugin 'scrooloose/syntastic.git'         " Syntax checker for a variety of files, including Python
-Plugin 'godlygeek/tabular.git'            " Tabularize lines
-Plugin 'tomtom/tcomment_vim.git'          " Comment lines
-Plugin 'Lokaltog/vim-easymotion.git'      " Move around with ease
-Plugin 'tpope/vim-surround.git'           " Surround text with stuff
-Plugin 'wincent/Command-T'                " Open files with ease
-Plugin 'Valloric/YouCompleteMe'           " Autocomplete for all sorts of files
-Plugin 'sirver/ultisnips'                 " Snippets
-Plugin 'honza/vim-snippets'               " Snippets repository
-Plugin 'tristen/vim-sparkup'              " Insert HTML using CSS style selectors
-Plugin 'maxbrunsfeld/vim-yankstack'       " Cycle back and forth in the copy/paste history
-Plugin 'airblade/vim-gitgutter'           " Add a column to the left with what's been added, changed, etc.
-Plugin 'tpope/vim-characterize'           " Enable modern, unicode based characterization
-Plugin 'tmhedberg/matchit'                " % will jump to matching HTML tag, and others
-Plugin 'valloric/MatchTagAlways'          " Highlight the HTML tag you are currently in.
-Plugin 'sjl/gundo.vim'                    " Explore the undo tree
-Plugin 'plasticboy/vim-markdown'          " Markdown support
-Plugin 'vim-scripts/taglist.vim'          " Source code structure browsing
-" Plugin 'lepture/vim-jinja'                " Jinja2 support
+Plugin 'gmarik/vundle'                         " Let Vundle manage Vundle, required
+Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
+Plugin 'scrooloose/syntastic.git'              " Syntax checker for a variety of files, including Python
+Plugin 'godlygeek/tabular.git'                 " Tabularize lines
+Plugin 'tomtom/tcomment_vim.git'               " Comment lines
+Plugin 'Lokaltog/vim-easymotion.git'           " Move around with ease
+Plugin 'tpope/vim-surround.git'                " Surround text with stuff
+Plugin 'wincent/Command-T'                     " Open files with ease
+Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
+Plugin 'sirver/ultisnips'                      " Snippets
+Plugin 'honza/vim-snippets'                    " Snippets repository
+Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
+Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
+Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
+Plugin 'tpope/vim-characterize'                " Enable modern, unicode based characterization
+Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
+Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
+Plugin 'sjl/gundo.vim'                         " Explore the undo tree
+Plugin 'plasticboy/vim-markdown'               " Markdown support
+Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
 
+" Plugin 'altercation/vim-colors-solarized' " Great color scheme
+" Plugin 'lepture/vim-jinja'                " Jinja2 support
 " Plugin 'vim-fugitive'                     " Git integration. Maybe for future.
 " Plugin 'moll/vim-node.git'                " For when I start node programming... if ever!
 " Plugin 'Rykka/riv.vim.git'                " For rst files... Seems a bit buggy right now
@@ -35,7 +36,8 @@ Plugin 'vim-scripts/taglist.vim'          " Source code structure browsing
 " Plugin 'flazz/vim-colorschemes.git'       " Using solarized for now
 
 filetype plugin indent on                   " required
-" ----------  end of Vundle setup code -------------
+
+" ----------  End of Vundle setup code -------------
 
 " Basic settings
 syntax on
@@ -141,3 +143,6 @@ augroup sparkup_types
   " Add sparkup to new filetypes
   autocmd FileType html,mustache,php,htmldjango runtime! ftplugin/html/sparkup.vim
 augroup END
+
+" I hardly ever edit a pure HTML file. Set default jinja
+au BufNewFile,BufRead *.html set filetype=htmldjango
