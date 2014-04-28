@@ -23,17 +23,44 @@ Plugin 'gmarik/vundle'
 " Using solarized for now
 " Plugin 'flazz/vim-colorschemes.git'
 
-Plugin 'scrooloose/syntastic.git'
-Plugin 'godlygeek/tabular.git'
-Plugin 'tomtom/tcomment_vim.git'
-Plugin 'Lokaltog/vim-easymotion.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'wincent/Command-T'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
-
+" Great color scheme
 Plugin 'altercation/vim-colors-solarized'
+" Syntax checker for a variety of files, including Python
+Plugin 'scrooloose/syntastic.git'
+" Tabularize lines
+Plugin 'godlygeek/tabular.git'
+" Comment lines
+Plugin 'tomtom/tcomment_vim.git'
+" Move around with ease
+Plugin 'Lokaltog/vim-easymotion.git'
+" Surround text with stuff
+Plugin 'tpope/vim-surround.git'
+" Open files with ease
+Plugin 'wincent/Command-T'
+" Autocomplete for all sorts of files
+Plugin 'Valloric/YouCompleteMe'
+" Snippets
+Plugin 'sirver/ultisnips'
+" Snippets repository
+Plugin 'honza/vim-snippets'
+" Insert HTML using CSS style selectors
+Plugin 'rstacruz/sparkup'
+" Cycle back and forth in the copy/paste history
+Plugin 'maxbrunsfeld/vim-yankstack'
+" Add a column to the left with what's been added, changed, etc.
+Plugin 'airblade/vim-gitgutter'
+" Enable modern, unicode based characterization
+Plugin 'tpope/vim-characterize'
+" % will jump to matching HTML tag, and others
+Plugin 'tmhedberg/matchit'
+" Highlight the HTML tag you are currently in.
+Plugin 'valloric/MatchTagAlways'
+" Explore the undo tree
+Plugin 'sjl/gundo.vim'
+
+" Maybe for future
+Plugin 'vim-fugitive'
+
 
 " scripts from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -62,10 +89,14 @@ set softtabstop=4
 set autoindent
 set smarttab
 set noswapfile
-set number
+set number  " Enable line numbers
+set macmeta " Enable the option key in MacVim
 
 " Capital K inserts a newline character where you are
 :nnoremap K i<CR><Esc>
+
+" Die ex mode, die. Should probably map this to something useful
+nnoremap Q gqq
 
 " Latex options
 autocmd Filetype tex set textwidth=80
@@ -143,3 +174,28 @@ endif
 " Disable the bell
 set noerrorbells
 set t_vb=
+
+" Set leader key to comma
+let mapleader=","
+
+" Some easy motion configuration
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+
+" MatchItAlways filetypes
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'htmldjango' : 1,
+    \}
+
+" For vim-gitgutter, set the column bg color to same as number column
+highlight clear SignColumn
+
+" Gundo key
+nnoremap <Leader>g :GundoToggle<CR>
