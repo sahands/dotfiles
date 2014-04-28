@@ -25,7 +25,7 @@ Plugin 'valloric/MatchTagAlways'          " Highlight the HTML tag you are curre
 Plugin 'sjl/gundo.vim'                    " Explore the undo tree
 Plugin 'plasticboy/vim-markdown'          " Markdown support
 Plugin 'vim-scripts/taglist.vim'          " Source code structure browsing
-Plugin 'lepture/vim-jinja'                " Jinja2 support
+" Plugin 'lepture/vim-jinja'                " Jinja2 support
 
 " Plugin 'vim-fugitive'                     " Git integration. Maybe for future.
 " Plugin 'moll/vim-node.git'                " For when I start node programming... if ever!
@@ -133,3 +133,11 @@ command! DelTrailingSpace :call <SID>StripTrailingWhitespaces()
 
 " Convert $x$ to :math:`x`
 command! Tex2rst :%s/\$\(.\{-}\)\$/:math:`\1`/ge  | :%s/\$\$\(.\{-}\)\$\$/\r\r.. math::\r\r\t\1\r\r/ge
+
+" Enable sparkup for other file types
+augroup sparkup_types
+  " Remove ALL autocommands of the current group.
+  autocmd!
+  " Add sparkup to new filetypes
+  autocmd FileType html,mustache,php,htmldjango runtime! ftplugin/html/sparkup.vim
+augroup END
