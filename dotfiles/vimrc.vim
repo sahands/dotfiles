@@ -23,6 +23,8 @@ Plugin 'tpope/vim-characterize'           " Enable modern, unicode based charact
 Plugin 'tmhedberg/matchit'                " % will jump to matching HTML tag, and others
 Plugin 'valloric/MatchTagAlways'          " Highlight the HTML tag you are currently in.
 Plugin 'sjl/gundo.vim'                    " Explore the undo tree
+Plugin 'plasticboy/vim-markdown'          " Markdown support
+Plugin 'vim-scripts/taglist.vim'          " Source code structure browsing
 
 
 " Plugin 'vim-fugitive'                     " Git integration. Maybe for future.
@@ -57,14 +59,16 @@ set ruler                                            " Show cursor position in s
 set iskeyword-=_
 set noerrorbells                                     " Disable the bell
 set t_vb=
-nnoremap <silent> <esc> :noh<cr><esc>                " hitting escape in command mode will clear last search
 
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
+nnoremap <silent> <esc> :noh<cr><esc>                " hitting escape in command mode will clear last search
 nnoremap K i<CR><Esc>                                " Capital K inserts a newline character where you are
 nnoremap Q gqq                                       " Die ex mode, die. Should probably map this to something useful
+nnoremap <Leader>s :TlistToggle<CR>                  " Open TagList
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc> " F3 will insert current date and time
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+
 
 
 " Enable spell check for some text documents
