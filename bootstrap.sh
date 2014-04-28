@@ -76,7 +76,7 @@ done
 
 
 # Utils
-for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen cmake
+for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen cmake ctags
 do
     port_install $P
 done

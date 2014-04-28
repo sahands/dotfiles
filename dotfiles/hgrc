@@ -1,5 +1,5 @@
 [ui]
-username = Sahand <sahands@gmail.com>
+username = Sahand Saba <sahands@gmail.com>
 
 [hooks]
 commit.autopush = hg push

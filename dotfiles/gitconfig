@@ -1,3 +1,5 @@
 [user]
-	name = Sahand
+	name = Sahand Saba
 	email = sahands@gmail.com
+[push]
+	default = simple
