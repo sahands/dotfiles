@@ -16,7 +16,7 @@ Plugin 'wincent/Command-T'                " Open files with ease
 Plugin 'Valloric/YouCompleteMe'           " Autocomplete for all sorts of files
 Plugin 'sirver/ultisnips'                 " Snippets
 Plugin 'honza/vim-snippets'               " Snippets repository
-Plugin 'rstacruz/sparkup'                 " Insert HTML using CSS style selectors
+Plugin 'tristen/vim-sparkup'              " Insert HTML using CSS style selectors
 Plugin 'maxbrunsfeld/vim-yankstack'       " Cycle back and forth in the copy/paste history
 Plugin 'airblade/vim-gitgutter'           " Add a column to the left with what's been added, changed, etc.
 Plugin 'tpope/vim-characterize'           " Enable modern, unicode based characterization
@@ -25,6 +25,7 @@ Plugin 'valloric/MatchTagAlways'          " Highlight the HTML tag you are curre
 Plugin 'sjl/gundo.vim'                    " Explore the undo tree
 Plugin 'plasticboy/vim-markdown'          " Markdown support
 Plugin 'vim-scripts/taglist.vim'          " Source code structure browsing
+Plugin 'lepture/vim-jinja'                " Jinja2 support
 
 " Plugin 'vim-fugitive'                     " Git integration. Maybe for future.
 " Plugin 'moll/vim-node.git'                " For when I start node programming... if ever!
