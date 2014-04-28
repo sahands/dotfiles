@@ -24,6 +24,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'mitsuhiko/vim-jinja'
 
 " scripts from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -111,8 +112,10 @@ if has("gui_running")
     " colorscheme busybee
     " colorscheme inkpot
     " colorscheme hybrid
-    
+
     colorscheme solarized
+    let g:solarized_contrast="high"    "default value is normal
+
     " Set the theme based on time of day
     if strftime("%H") < 19  && strftime("%H") > 5
         set background=light
