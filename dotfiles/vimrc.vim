@@ -18,13 +18,13 @@ Plugin 'sirver/ultisnips'                      " Snippets
 Plugin 'honza/vim-snippets'                    " Snippets repository
 Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
 Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
-Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
 Plugin 'tpope/vim-characterize'                " Enable modern, unicode based characterization
 Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
 Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
 Plugin 'sjl/gundo.vim'                         " Explore the undo tree
 Plugin 'plasticboy/vim-markdown'               " Markdown support
 Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
+Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
 
 " Plugin 'altercation/vim-colors-solarized' " Great color scheme
 " Plugin 'lepture/vim-jinja'                " Jinja2 support
@@ -34,6 +34,7 @@ Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
 " Plugin 'vim-scripts/pep8.git'             " Not needed with syntastic
 " Plugin 'nvie/vim-flake8.git'              " Same as pep8
 " Plugin 'flazz/vim-colorschemes.git'       " Using solarized for now
+" Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
 
 filetype plugin indent on                   " required
 
