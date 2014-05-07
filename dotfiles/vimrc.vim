@@ -66,7 +66,6 @@ set t_vb=
 
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
-nnoremap <silent> <esc> :noh<cr><esc>                " hitting escape in command mode will clear last search
 nnoremap K i<CR><Esc>                                " Capital K inserts a newline character where you are
 nnoremap Q gqq                                       " Die ex mode, die. Should probably map this to something useful
 nnoremap <Leader>s :TagbarToggle<CR>                 " Open TagBar
@@ -93,6 +92,7 @@ if has("gui_running")
     set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_        " Display invisible characters
     set list
     autocmd! GUIEnter * set vb t_vb=            " Enable visual bell
+    nnoremap <silent> <esc> :noh<cr><esc>       " hitting escape in command mode will clear last search
 endif
 
 " EasyMotion configuration
