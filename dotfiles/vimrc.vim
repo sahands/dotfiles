@@ -23,18 +23,20 @@ Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML ta
 Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
 Plugin 'sjl/gundo.vim'                         " Explore the undo tree
 Plugin 'plasticboy/vim-markdown'               " Markdown support
-Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
+Plugin 'majutsushi/tagbar'                     " Source code structure
 Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
+Plugin 'maksimr/vim-jsbeautify'                " Format JS code
+Plugin 'moll/vim-node.git'                     " For when I start node programming... if ever!
 
 " Plugin 'altercation/vim-colors-solarized' " Great color scheme
 " Plugin 'lepture/vim-jinja'                " Jinja2 support
 " Plugin 'vim-fugitive'                     " Git integration. Maybe for future.
-" Plugin 'moll/vim-node.git'                " For when I start node programming... if ever!
 " Plugin 'Rykka/riv.vim.git'                " For rst files... Seems a bit buggy right now
 " Plugin 'vim-scripts/pep8.git'             " Not needed with syntastic
 " Plugin 'nvie/vim-flake8.git'              " Same as pep8
 " Plugin 'flazz/vim-colorschemes.git'       " Using solarized for now
 " Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
+" Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
 
 filetype plugin indent on                   " required
 
@@ -67,7 +69,7 @@ let mapleader=","                                    " Set leader key to comma
 nnoremap <silent> <esc> :noh<cr><esc>                " hitting escape in command mode will clear last search
 nnoremap K i<CR><Esc>                                " Capital K inserts a newline character where you are
 nnoremap Q gqq                                       " Die ex mode, die. Should probably map this to something useful
-nnoremap <Leader>s :TlistToggle<CR>                  " Open TagList
+nnoremap <Leader>s :TagbarToggle<CR>                 " Open TagBar
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc> " F3 will insert current date and time
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
@@ -147,3 +149,8 @@ augroup END
 
 " I hardly ever edit a pure HTML file. Set default jinja
 au BufNewFile,BufRead *.html set filetype=htmldjango
+
+" JsBeautify shortcuts
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
