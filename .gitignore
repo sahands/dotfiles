@@ -1,4 +1,5 @@
 dotfiles/vim/.netrwhist
 dotfiles/vim/bundle
+dotfiles/vim/spell/*.spl
 logs/*
 .DS_Store
