@@ -32,6 +32,7 @@ Plugin 'leafgarland/typescript-vim'            " TypeScript support
 Plugin 'walm/jshint.vim'                       " Run jshint on js files
 Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
 Plugin 'digitaltoad/vim-jade'                  " Support jade files
+Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
 
 " Plugin 'altercation/vim-colors-solarized' " Great color scheme
 " Plugin 'lepture/vim-jinja'                " Jinja2 support
