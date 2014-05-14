@@ -27,6 +27,12 @@ Plugin 'majutsushi/tagbar'                     " Source code structure
 Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
 Plugin 'maksimr/vim-jsbeautify'                " Format JS code
 Plugin 'moll/vim-node.git'                     " For when I start node programming... if ever!
+Plugin 'vim-scripts/camelcasemotion'           " CamelCaseMotion
+Plugin 'leafgarland/typescript-vim'            " TypeScript support
+Plugin 'walm/jshint.vim'                       " Run jshint on js files
+Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
+Plugin 'digitaltoad/vim-jade'                  " Support jade files
+Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
 
 " Plugin 'altercation/vim-colors-solarized' " Great color scheme
 " Plugin 'lepture/vim-jinja'                " Jinja2 support
@@ -90,6 +96,8 @@ if has("gui_running")
     endif
 
     set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_        " Display invisible characters
+    " Except for javascript files hid the EOL and NBSP
+    autocmd FileType javascript set lcs=tab:▸\ ,trail:·,eol:\ ,nbsp:\ 
     set list
     autocmd! GUIEnter * set vb t_vb=            " Enable visual bell
     nnoremap <silent> <esc> :noh<cr><esc>       " hitting escape in command mode will clear last search
