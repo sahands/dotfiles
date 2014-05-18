@@ -33,6 +33,7 @@ Plugin 'walm/jshint.vim'                       " Run jshint on js files
 Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
 Plugin 'digitaltoad/vim-jade'                  " Support jade files
 Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
+Plugin 'elzr/vim-json'                         " Better JSON support
 
 " Plugin 'altercation/vim-colors-solarized' " Great color scheme
 " Plugin 'lepture/vim-jinja'                " Jinja2 support
@@ -69,6 +70,8 @@ set ruler                                            " Show cursor position in s
 set iskeyword-=_
 set noerrorbells                                     " Disable the bell
 set t_vb=
+set splitright                                       " Create new window on the right
+set splitbelow                                       " Create new window below
 
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
