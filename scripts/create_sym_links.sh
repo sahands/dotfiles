@@ -8,18 +8,18 @@ BACKUP=NO
 for FILE in $CONFIGPATH/*
 do
     BASEFILE=$(basename "$FILE")
-    CONF_FILE=${BASEFILE%.*}
-    echo "~/.$CONF_FILE -> $FILE"
-    if [ -L ~/.$CONF_FILE ] || [ -e ~/.$CONF_FILE ]
+    CONFFILE=${BASEFILE%.*}
+    echo "~/.$CONFFILE -> $FILE"
+    if [ -L ~/.$CONFFILE ] || [ -e ~/.$CONFFILE ]
     then
         if [ $BACKUP == 'YES' ]
         then
-            echo "WARNING - ~/.$CONF_FILE already exists. Renaming to ~/.$CONF_FILE.old"
-            mv ~/.$CONF_FILE ~/.$CONF_FILE.old
+            echo "WARNING - ~/.$CONFFILE already exists. Renaming to ~/.$CONFFILE.old"
+            mv ~/.$CONFFILE ~/.$CONFFILE.old
         else
-            echo "WARNING - ~/.$CONF_FILE already exists. Deleting it." 
-            rm ~/.$CONF_FILE
+            echo "WARNING - ~/.$CONFFILE already exists. Deleting it." 
+            rm ~/.$CONFFILE
         fi
     fi
-    ln -s $SCRIPTPATH/$FILE ~/.$CONF_FILE
+    ln -s $CONFIGPATH/$BASEFILE ~/.$CONFFILE
 done
