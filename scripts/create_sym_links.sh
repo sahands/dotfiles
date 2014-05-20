@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-SCRIPT=`greadlink -f $0`
+SCRIPT=`readlink -f $0`
 SCRIPTPATH=`dirname $SCRIPT`
-CONFIGPATH=`greadlink -f $SCRIPTPATH/../config`
+CONFIGPATH=`readlink -f $SCRIPTPATH/../config`
 BACKUP=NO
 
 for FILE in $CONFIGPATH/*
