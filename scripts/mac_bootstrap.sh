@@ -11,9 +11,9 @@ rm logs/*/*.log
 
 # Install HR
 echo "Installing hr..."
-cd utils/hr
+cd ../utils/hr
 make install > /dev/null 2> /dev/null
-cd ../..
+cd ../../scripts
 
 
 # Update port
@@ -91,16 +91,16 @@ done
 
 # Install duti
 echo "Installing duti..."
-cd utils/duti
+cd ../utils/duti
 autoconf ./configure.ac > configure 2> /dev/null
 chmod +x configure > /dev/null 2> /dev/null
 ./configure > /dev/null 2> /dev/null
 make > /dev/null 2> /dev/null
 make install > /dev/null 2> /dev/null
 make clean > /dev/null 2> /dev/null
-cd ../..
+cd ../../scripts
 
 # Install fonts
 echo "Installing fonts..."
-cp fonts/*/*.ttf /Library/Fonts/
-cp fonts/*/*.otf /Library/Fonts/
+cp ../fonts/*/*.ttf /Library/Fonts/
+cp ../fonts/*/*.otf /Library/Fonts/

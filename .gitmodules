@@ -1,35 +1,35 @@
-[submodule "dotfiles/vim/bundle/vim-node"]
-	path = dotfiles/vim/bundle/vim-node
+[submodule "config/vim/bundle/vim-node"]
+	path = config/vim/bundle/vim-node
 	url = https://github.com/moll/vim-node.git
-[submodule "dotfiles/vim/bundle/pep8"]
-	path = dotfiles/vim/bundle/pep8
+[submodule "config/vim/bundle/pep8"]
+	path = config/vim/bundle/pep8
 	url = https://github.com/vim-scripts/pep8.git
-[submodule "dotfiles/vim/bundle/riv.vim"]
-	path = dotfiles/vim/bundle/riv.vim
+[submodule "config/vim/bundle/riv.vim"]
+	path = config/vim/bundle/riv.vim
 	url = https://github.com/Rykka/riv.vim.git
-[submodule "dotfiles/vim/bundle/tabular"]
-	path = dotfiles/vim/bundle/tabular
+[submodule "config/vim/bundle/tabular"]
+	path = config/vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "dotfiles/vim/bundle/tcomment_vim"]
-	path = dotfiles/vim/bundle/tcomment_vim
+[submodule "config/vim/bundle/tcomment_vim"]
+	path = config/vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "dotfiles/vim/bundle/vim-easymotion"]
-	path = dotfiles/vim/bundle/vim-easymotion
+[submodule "config/vim/bundle/vim-easymotion"]
+	path = config/vim/bundle/vim-easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
-[submodule "dotfiles/vim/bundle/vim-flake8"]
-	path = dotfiles/vim/bundle/vim-flake8
+[submodule "config/vim/bundle/vim-flake8"]
+	path = config/vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule "dotfiles/vim/bundle/vim-surround"]
-	path = dotfiles/vim/bundle/vim-surround
+[submodule "config/vim/bundle/vim-surround"]
+	path = config/vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "dotfiles/vim/bundle/syntastic"]
-	path = dotfiles/vim/bundle/syntastic
+[submodule "config/vim/bundle/syntastic"]
+	path = config/vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "dotfiles/vim/bundle/jedi-vim"]
-	path = dotfiles/vim/bundle/jedi-vim
+[submodule "config/vim/bundle/jedi-vim"]
+	path = config/vim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "dotfiles/vim/bundle/colorschemes"]
-	path = dotfiles/vim/bundle/colorschemes
+[submodule "config/vim/bundle/colorschemes"]
+	path = config/vim/bundle/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
 [submodule "utils/duti"]
 	path = utils/duti
@@ -37,6 +37,6 @@
 [submodule "utils/hr"]
 	path = utils/hr
 	url = git@github.com:sahands/hr.git
-[submodule "dotfiles/vim/bundle/vundle"]
-	path = dotfiles/vim/bundle/vundle
+[submodule "config/vim/bundle/vundle"]
+	path = config/vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git

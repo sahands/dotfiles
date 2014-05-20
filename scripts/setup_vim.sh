@@ -9,14 +9,14 @@ mvim -v +PluginInstall +qall
 
 # Making YouCompleteMe
 echo "Making MacVim plugin YouCompleteMe"
-cd dotfiles/vim/bundle/YouCompleteMe
+cd ../config/vim/bundle/YouCompleteMe
 ./install.sh --clang-completer --omnisharp-completer
 
 # Making Command-T
 echo "Making Command-T"
 cd ../Command-T/ruby/command-t
-ruby extconf.rb 
+ruby extconf.rb
 make > /dev/null
 
-cd ../../../..
+cd ../../../../scripts
 echo "Done"
