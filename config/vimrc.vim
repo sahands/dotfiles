@@ -162,6 +162,9 @@ augroup END
 " I hardly ever edit a pure HTML file. Set default jinja
 au BufNewFile,BufRead *.html set filetype=htmldjango
 
+" Consider swig files to be jinja2 files for now
+au BufNewFile,BufRead *.swig set filetype=htmldjango
+
 " JsBeautify shortcuts
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>

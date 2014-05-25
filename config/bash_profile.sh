@@ -1,5 +1,7 @@
-# Load Mac specific settings if on a Mac
+# Use vim anytime an editor is needed by bash
+export EDITOR="vim"
 
+# Load Mac specific settings if on a Mac
 PLATFORM=`uname`
 if [[ "$PLATFORM" == 'Darwin' ]]; then
     source ~/.bash_profile_mac
@@ -7,9 +9,6 @@ fi
 
 # Use vi keyboard shortcuts in bash
 set -o vi
-
-# Use vim anytime an editor is needed by bash
-export EDITOR="vim"
 
 # bash-completion
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
@@ -40,3 +39,8 @@ shopt -s globstar
 
 # Set the prompt
 PS1="[\\A] \\w $ "
+
+# Include bashrc if it exists
+if [ -e ~/.bashrc ] || [ -L ~/.bashrc ]; then
+    source ~/.bashrc
+fi

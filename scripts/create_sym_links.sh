@@ -2,8 +2,14 @@
 
 SCRIPT=`readlink -f $0`
 SCRIPTPATH=`dirname $SCRIPT`
-CONFIGPATH=`readlink -f $SCRIPTPATH/../config`
 BACKUP=NO
+
+PLATFORM=`uname`
+if [[ "$PLATFORM" == 'Darwin' ]]; then
+    CONFIGPATH=`greadlink -f $SCRIPTPATH/../config`
+else
+    CONFIGPATH=`readlink -f $SCRIPTPATH/../config`
+fi
 
 for FILE in $CONFIGPATH/*
 do

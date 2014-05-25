@@ -1,6 +1,9 @@
 # Replace vim with mvim
 alias vim='mvim -v'
 
+# mvim instead of vim
+export EDITOR="mvim -v"
+
 # Enable colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -17,7 +20,8 @@ export PATH="${AWS_RDS_HOME}/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Use GNU core utils instead of Mac OS X ones
-export PATH=/opt/local/libexec/gnubin:$PATH
+# export PATH=/opt/local/libexec/gnubin:$PATH
+# alias ls='gls --color=auto'
 
 # Run duti with ~/.duti file as settings
 duti ~/.duti
