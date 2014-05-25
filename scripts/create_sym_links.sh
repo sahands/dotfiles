@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-SCRIPT=`readlink -f $0`
-SCRIPTPATH=`dirname $SCRIPT`
 BACKUP=NO
-
 PLATFORM=`uname`
 if [[ "$PLATFORM" == 'Darwin' ]]; then
+echo "HERE"
+    SCRIPT=`greadlink -f $0`
+    SCRIPTPATH=`dirname $SCRIPT`
     CONFIGPATH=`greadlink -f $SCRIPTPATH/../config`
 else
+    SCRIPT=`readlink -f $0`
+    SCRIPTPATH=`dirname $SCRIPT`
     CONFIGPATH=`readlink -f $SCRIPTPATH/../config`
 fi
 

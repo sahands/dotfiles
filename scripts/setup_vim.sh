@@ -18,5 +18,4 @@ cd ../Command-T/ruby/command-t
 ruby extconf.rb
 make > /dev/null
 
-cd ../../../../scripts
 echo "Done"
