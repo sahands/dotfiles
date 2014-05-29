@@ -28,7 +28,6 @@ main() {
     ruby extconf.rb
     make > /dev/null
 
-    cd ../../../../scripts
     echo "Done"
 }
 
