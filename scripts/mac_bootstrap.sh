@@ -10,14 +10,12 @@ readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(greadlink -m $(dirname $0))
 readonly ARGS="$@"
 
-
 ensure_log_directories_exist() {
     # Make sure logs dirs are there
     mkdir -p logs/pip
     mkdir -p logs/port
     rm logs/*/*.log
 }
-
 
 install_hr() {
     # Install HR
@@ -100,7 +98,6 @@ install_utils() {
     hr
 }
 
-
 install_duti() {
     # Install duti
     echo "Installing duti..."
@@ -113,7 +110,6 @@ install_duti() {
     make clean > /dev/null 2> /dev/null
     cd ../../scripts
 }
-
 
 install_fonts() {
     # Install fonts

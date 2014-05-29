@@ -1,31 +1,44 @@
 #!/usr/bin/env bash
 
-SCRIPT=`readlink -f $0`
-SCRIPTPATH=`dirname $SCRIPT`
-BACKUP=NO
+# Use "strict" mode
+set -u
+set -o pipefail
+IFS=$'\n\t'
 
-PLATFORM=`uname`
-if [[ "$PLATFORM" == 'Darwin' ]]; then
-    CONFIGPATH=`greadlink -f $SCRIPTPATH/../config`
-else
-    CONFIGPATH=`readlink -f $SCRIPTPATH/../config`
-fi
+# Readonly globals
+readonly PROGNAME=$(basename $0)
+readonly PROGDIR=$(greadlink -m $(dirname $0))
+readonly ARGS="$@"
 
-for FILE in $CONFIGPATH/*
-do
-    BASEFILE=$(basename "$FILE")
-    CONFFILE=${BASEFILE%.*}
-    echo "~/.$CONFFILE -> $FILE"
-    if [ -L ~/.$CONFFILE ] || [ -e ~/.$CONFFILE ]
-    then
-        if [ $BACKUP == 'YES' ]
-        then
-            echo "WARNING - ~/.$CONFFILE already exists. Renaming to ~/.$CONFFILE.old"
-            mv ~/.$CONFFILE ~/.$CONFFILE.old
-        else
-            echo "WARNING - ~/.$CONFFILE already exists. Deleting it." 
-            rm ~/.$CONFFILE
-        fi
+# Options
+readonly BACKUP="YES"
+
+main() {
+    PLATFORM=`uname`
+    if [[ "$PLATFORM" == 'Darwin' ]]; then
+        CONFIGPATH=`greadlink -f $PROGDIR/../config`
+    else
+        CONFIGPATH=`readlink -f $PROGDIR/../config`
     fi
-    ln -s $CONFIGPATH/$BASEFILE ~/.$CONFFILE
-done
+
+    for FILE in $CONFIGPATH/*
+    do
+        BASEFILE=$(basename "$FILE")
+        CONFFILE=${BASEFILE%.*}
+        echo "~/.$CONFFILE -> $FILE"
+        if [ -L ~/.$CONFFILE ] || [ -e ~/.$CONFFILE ]
+        then
+            if [ $BACKUP == "YES" ]
+            then
+                echo "WARNING - ~/.$CONFFILE already exists. Renaming to ~/.$CONFFILE.old"
+                mv ~/.$CONFFILE ~/.$CONFFILE.old
+            else
+                echo "WARNING - ~/.$CONFFILE already exists. Deleting it." 
+                rm ~/.$CONFFILE
+            fi
+        fi
+        ln -s $CONFIGPATH/$BASEFILE ~/.$CONFFILE
+    done
+}
+
+main
