@@ -7,11 +7,11 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'                         " Let Vundle manage Vundle, required
 Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
-Plugin 'scrooloose/syntastic.git'              " Syntax checker for a variety of files, including Python
-Plugin 'godlygeek/tabular.git'                 " Tabularize lines
-Plugin 'tomtom/tcomment_vim.git'               " Comment lines
-Plugin 'Lokaltog/vim-easymotion.git'           " Move around with ease
-Plugin 'tpope/vim-surround.git'                " Surround text with stuff
+Plugin 'scrooloose/syntastic'              " Syntax checker for a variety of files, including Python
+Plugin 'godlygeek/tabular'                 " Tabularize lines
+Plugin 'tomtom/tcomment_vim'               " Comment lines
+Plugin 'Lokaltog/vim-easymotion'           " Move around with ease
+Plugin 'tpope/vim-surround'                " Surround text with stuff
 Plugin 'wincent/Command-T'                     " Open files with ease
 Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
 Plugin 'sirver/ultisnips'                      " Snippets
@@ -26,7 +26,7 @@ Plugin 'plasticboy/vim-markdown'               " Markdown support
 Plugin 'majutsushi/tagbar'                     " Source code structure
 Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
 Plugin 'maksimr/vim-jsbeautify'                " Format JS code
-Plugin 'moll/vim-node.git'                     " For when I start node programming... if ever!
+Plugin 'moll/vim-node'                     " For when I start node programming... if ever!
 Plugin 'vim-scripts/camelcasemotion'           " CamelCaseMotion
 Plugin 'leafgarland/typescript-vim'            " TypeScript support
 Plugin 'walm/jshint.vim'                       " Run jshint on js files
@@ -35,15 +35,15 @@ Plugin 'digitaltoad/vim-jade'                  " Support jade files
 Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
 Plugin 'elzr/vim-json'                         " Better JSON support
 Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
+Plugin 'tpope/vim-fugitive'                          " Git integration. Maybe for future.
 
-" Plugin 'altercation/vim-colors-solarized' " Great color scheme
-" Plugin 'lepture/vim-jinja'                " Jinja2 support
-" Plugin 'vim-fugitive'                     " Git integration. Maybe for future.
-" Plugin 'Rykka/riv.vim.git'                " For rst files... Seems a bit buggy right now
-" Plugin 'vim-scripts/pep8.git'             " Not needed with syntastic
-" Plugin 'nvie/vim-flake8.git'              " Same as pep8
-" Plugin 'flazz/vim-colorschemes.git'       " Using solarized for now
-" Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
+" Plugin 'altercation/vim-colors-solarized'    " Great color scheme
+" Plugin 'lepture/vim-jinja'                   " Jinja2 support
+" Plugin 'Rykka/riv.vim'                       " For rst files... Seems a bit buggy right now
+" Plugin 'vim-scripts/pep8'                    " Not needed with syntastic
+" Plugin 'nvie/vim-flake8'                     " Same as pep8
+" Plugin 'flazz/vim-colorschemes'              " Using solarized for now
+" Plugin 'airblade/vim-gitgutter'              " Add a column to the left with what's been added, changed, etc.
 " Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
 
 filetype plugin indent on                   " required
@@ -81,6 +81,7 @@ nnoremap Q gqq                                       " Die ex mode, die. Should 
 nnoremap <Leader>s :TagbarToggle<CR>                 " Open TagBar
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc> " F3 will insert current date and time
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+map Y y$                                             " Y will yank to end of line
 
 " Enable spell check for some text documents
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
