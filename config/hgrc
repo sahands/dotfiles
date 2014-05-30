@@ -3,3 +3,6 @@ username = Sahand Saba <sahands@gmail.com>
 
 [hooks]
 commit.autopush = hg push
+
+[extensions]
+hggit=
