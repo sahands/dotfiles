@@ -5,22 +5,20 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
-# Readonly globals
-readonly PROGNAME=$(basename $0)
-readonly PROGDIR=$(greadlink -m $(dirname $0))
-readonly ARGS="$@"
+if [[ `uname` == 'Darwin' ]]; then
+    readonly PROGNAME=$(basename $0)
+    readonly PROGDIR=$(greadlink -m $(dirname $0))
+    readonly CONFIGPATH=`greadlink -f $PROGDIR/../config`
+else
+    readonly PROGNAME=$(basename $0)
+    readonly PROGDIR=$(readlink -m $(dirname $0))
+    readonly CONFIGPATH=`readlink -f $PROGDIR/../config`
+fi
 
 # Options
 readonly BACKUP="YES"
 
 main() {
-    PLATFORM=`uname`
-    if [[ "$PLATFORM" == 'Darwin' ]]; then
-        CONFIGPATH=`greadlink -f $PROGDIR/../config`
-    else
-        CONFIGPATH=`readlink -f $PROGDIR/../config`
-    fi
-
     for FILE in $CONFIGPATH/*
     do
         BASEFILE=$(basename "$FILE")

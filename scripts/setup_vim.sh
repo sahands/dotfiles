@@ -22,6 +22,9 @@ main() {
     cd ../config/vim/bundle/YouCompleteMe
     ./install.sh --clang-completer --omnisharp-completer
 
+<<<<<<< HEAD
+echo "Done"
+=======
     # Making Command-T
     echo "Making Command-T"
     cd ../Command-T/ruby/command-t
@@ -32,3 +35,4 @@ main() {
 }
 
 main
+>>>>>>> a247a3156d257b1eef6ec60186da231f6adeb7f4
