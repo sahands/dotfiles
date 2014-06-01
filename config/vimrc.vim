@@ -39,6 +39,8 @@ Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for futu
 Plugin 'AndrewRadev/splitjoin.vim'             " Git integration. Maybe for future.
 Plugin 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
 Plugin 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
+Plugin 'sjl/threesome.vim'                     " Merge tool
+Plugin 'sahands/vim-rst-headers'               " Format RST file headers
 
 
 " Plugin 'bling/vim-airline'                   " Better status line
