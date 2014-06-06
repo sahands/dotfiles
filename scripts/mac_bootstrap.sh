@@ -5,20 +5,17 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
-# Readonly globals
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(greadlink -m $(dirname $0))
 readonly ARGS="$@"
 
 ensure_log_directories_exist() {
-    # Make sure logs dirs are there
     mkdir -p logs/pip
     mkdir -p logs/port
     rm logs/*/*.log
 }
 
 install_hr() {
-    # Install HR
     echo "Installing hr..."
     cd ../utils/hr
     make install > /dev/null 2> /dev/null
@@ -44,7 +41,6 @@ check_port_variants() {
 }
 
 select_mac_port_variants() {
-    # Select port's python
     hr
     port select --set ruby ruby${RUBY}
     port select --set python python${PY}
@@ -64,7 +60,6 @@ create_shortcuts() {
 }
 
 install_bash() {
-    # Install bash and zsh
     for P in bash bash-completion zsh zsh-completions python${PY} ruby${RUBY}
     do
         port_install $P
@@ -81,7 +76,6 @@ install_python_libraries() {
 }
 
 install_essentials() {
-    # Essentials
     for P in macvim git-core mercurial
     do
         port_install $P
@@ -90,8 +84,7 @@ install_essentials() {
 }
 
 install_utils() {
-    # Utils
-    for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen cmake ctags pdf2svg ImageMagick
+    for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen cmake ctags pdf2svg ImageMagick gnupgp
     do
         port_install $P
     done
@@ -99,7 +92,6 @@ install_utils() {
 }
 
 install_duti() {
-    # Install duti
     echo "Installing duti..."
     cd ../utils/duti
     autoconf ./configure.ac > configure 2> /dev/null
@@ -112,7 +104,6 @@ install_duti() {
 }
 
 install_fonts() {
-    # Install fonts
     echo "Installing fonts..."
     cp ../fonts/*/*.ttf /Library/Fonts/
     cp ../fonts/*/*.otf /Library/Fonts/
