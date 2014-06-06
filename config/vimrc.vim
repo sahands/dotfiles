@@ -36,12 +36,12 @@ Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScr
 Plugin 'elzr/vim-json'                         " Better JSON support
 Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
 Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for future.
-Plugin 'AndrewRadev/splitjoin.vim'             " Git integration. Maybe for future.
+Plugin 'AndrewRadev/splitjoin.vim'             " Split join: gS to split, gJ to join
 Plugin 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
 Plugin 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
 Plugin 'sjl/threesome.vim'                     " Merge tool
 Plugin 'sahands/vim-rst-headers'               " Format RST file headers
-
+Plugin 'ap/vim-css-color'                      " CSS Colors
 
 " Plugin 'bling/vim-airline'                   " Better status line
 " Plugin 'terryma/vim-expand-region'           "
@@ -85,6 +85,7 @@ set splitbelow                                       " Create new window below
 
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
+" let mapleader=" "
 " let mapleader="\<Space>"                           " Set leader key to space (doesn't seem to work)
 
 nnoremap K i<CR><Esc>                                " Capital K inserts a newline character where you are
@@ -93,6 +94,10 @@ nnoremap <Leader>s :TagbarToggle<CR>                 " Open TagBar
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc> " F3 will insert current date and time
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 map Y y$                                             " Y will yank to end of line
+map <C-J> <C-W>j<C-W>_                               " CTRL-J to focus on above window and maximize
+map <C-k> <C-W>k<C-W>_                               " Etc.
+map <C-h> <C-W>h<C-W>_
+map <C-l> <C-W>l<C-W>_
 " vmap v <Plug>(expand_region_expand)                  " pressing v will expand selection
 " vmap <C-v> <Plug>(expand_region_shrink)              " Ctrl+v will shrink
 

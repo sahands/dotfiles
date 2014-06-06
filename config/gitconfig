@@ -1,6 +1,7 @@
 [user]
     name = Sahand Saba
     email = sahands@gmail.com
+	signingkey = 7E959827
 
 [push]
     default = simple
