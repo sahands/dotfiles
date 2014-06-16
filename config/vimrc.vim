@@ -42,6 +42,7 @@ Plugin 'wellle/targets.vim'                    " More targets such as da, (delet
 Plugin 'sjl/threesome.vim'                     " Merge tool
 Plugin 'sahands/vim-rst-headers'               " Format RST file headers
 Plugin 'ap/vim-css-color'                      " CSS Colors
+Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
 
 " Plugin 'bling/vim-airline'                   " Better status line
 " Plugin 'terryma/vim-expand-region'           "
