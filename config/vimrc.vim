@@ -191,3 +191,6 @@ au BufNewFile,BufRead *.swig set filetype=htmldjango
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" Disable jsdoc default Ctrl-l mapping
+let g:jsdoc_default_mapping=0
