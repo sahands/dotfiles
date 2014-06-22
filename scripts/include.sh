@@ -15,7 +15,7 @@ readonly VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
 # Functions to install port and pip packages
 function port_install {
     FILE=logs/port/${1}.log 
-    port install $1 2> ${FILE} > ${FILE}
+    port install -f $1 2> ${FILE} > ${FILE}
     if [ $? -eq 0 ]
     then
         echo -n "port - installed $1 "

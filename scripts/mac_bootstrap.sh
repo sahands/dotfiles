@@ -27,7 +27,7 @@ check_port_variants() {
     echo "Checking port variants."
     for VARIANT in bash_completion zsh_completion python${PY} svn ruby${RUBY} gem
     do
-        grep "^+${VARIANT$}" ${VARIANTS_FILE} -q
+        grep "^+${VARIANT}$" ${VARIANTS_FILE} -q
         if [ $? -eq 1 ]
         then
             echo "Variant +${VARIANT} not found in ${VARIANTS_FILE}."
@@ -69,7 +69,8 @@ install_bash() {
 }
 
 install_python_libraries() {
-    for P in pip virtualenv ipython scipy numpy sympy pandas matplotlib scikit-learn nltk pep8 flake8 jedi pymongo pygments zmq nose tz
+    for P in pip virtualenv ipython scipy numpy sympy pandas matplotlib \
+        scikit-learn nltk pep8 flake8 jedi pymongo pygments zmq nose tz flask
     do
         port_install py${PY}-${P}
     done
@@ -77,7 +78,7 @@ install_python_libraries() {
 }
 
 install_essentials() {
-    for P in macvim git-core mercurial
+    for P in macvim git mercurial
     do
         port_install ${P}
     done
@@ -85,7 +86,8 @@ install_essentials() {
 }
 
 install_utils() {
-    for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen cmake ctags pdf2svg ImageMagick gnupgp
+    for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen \
+        cmake ctags pdf2svg ImageMagick gnupg
     do
         port_install ${P}
     done
