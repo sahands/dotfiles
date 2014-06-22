@@ -17,9 +17,9 @@ ensure_log_directories_exist() {
 
 install_hr() {
     echo "Installing hr..."
-    cd ../utils/hr
+    pushd ../utils/hr
     make install > /dev/null 2> /dev/null
-    cd ../../scripts
+    popd
 }
 
 check_port_variants() {
@@ -27,16 +27,16 @@ check_port_variants() {
     echo "Checking port variants."
     for VARIANT in bash_completion zsh_completion python${PY} svn ruby${RUBY} gem
     do
-        grep "^+$VARIANT$" $VARIANTS_FILE -q
+        grep "^+${VARIANT$}" ${VARIANTS_FILE} -q
         if [ $? -eq 1 ]
         then
-            echo "Variant +$VARIANT not found in $VARIANTS_FILE."
+            echo "Variant +${VARIANT} not found in ${VARIANTS_FILE}."
             echo "Adding it."
-            sh -c 'echo "'+$VARIANT'" >> '$VARIANTS_FILE
+            sh -c 'echo "'+${VARIANT}'" >> '${VARIANTS_FILE}
         fi
     done
     echo "Active port variants:"
-    cat $VARIANTS_FILE
+    cat ${VARIANTS_FILE}
     hr
 }
 
@@ -49,6 +49,7 @@ select_mac_port_variants() {
     port select --set pep8 pep8${PY}
     port select --set virtualenv virtualenv${PY}
     port select --set pyflakes py${PY}-pyflakes
+    port select --set py-sympy py${PY}-sympy
     hr
 }
 
@@ -62,15 +63,15 @@ create_shortcuts() {
 install_bash() {
     for P in bash bash-completion zsh zsh-completions python${PY} ruby${RUBY}
     do
-        port_install $P
+        port_install ${P}
     done
     hr
 }
 
 install_python_libraries() {
-    for P in pip ipython numpy matplotlib pep8 flake8 jedi scikit-learn scipy nltk pymongo virtualenv pygments zmq nose tz
+    for P in pip virtualenv ipython scipy numpy sympy pandas matplotlib scikit-learn nltk pep8 flake8 jedi pymongo pygments zmq nose tz
     do
-        port_install py${PY}-$P
+        port_install py${PY}-${P}
     done
     hr
 }
@@ -78,7 +79,7 @@ install_python_libraries() {
 install_essentials() {
     for P in macvim git-core mercurial
     do
-        port_install $P
+        port_install ${P}
     done
     hr
 }
@@ -86,21 +87,21 @@ install_essentials() {
 install_utils() {
     for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen cmake ctags pdf2svg ImageMagick gnupgp
     do
-        port_install $P
+        port_install ${P}
     done
     hr
 }
 
 install_duti() {
     echo "Installing duti..."
-    cd ../utils/duti
+    pushd ../utils/duti
     autoconf ./configure.ac > configure 2> /dev/null
     chmod +x configure > /dev/null 2> /dev/null
     ./configure > /dev/null 2> /dev/null
     make > /dev/null 2> /dev/null
     make install > /dev/null 2> /dev/null
     make clean > /dev/null 2> /dev/null
-    cd ../../scripts
+    popd
 }
 
 install_fonts() {
@@ -110,7 +111,7 @@ install_fonts() {
 }
 
 main() {
-    source $PROGDIR/include.sh
+    source ${PROGDIR}/include.sh
     ensure_log_directories_exist
     install_hr
     install_bash

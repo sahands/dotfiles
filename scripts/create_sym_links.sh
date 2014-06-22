@@ -19,23 +19,23 @@ fi
 readonly BACKUP="YES"
 
 main() {
-    for FILE in $CONFIGPATH/*
+    for FILE in ${CONFIGPATH}/*
     do
         BASEFILE=$(basename "$FILE")
         CONFFILE=${BASEFILE%.*}
-        echo "~/.$CONFFILE -> $FILE"
-        if [ -L ~/.$CONFFILE ] || [ -e ~/.$CONFFILE ]
+        echo "~/.${CONFFILE} -> ${FILE}"
+        if [ -L ~/.${CONFFILE} ] || [ -e ~/.${CONFFILE} ]
         then
-            if [ $BACKUP == "YES" ]
+            if [ ${BACKUP} == "YES" ]
             then
-                echo "WARNING - ~/.$CONFFILE already exists. Renaming to ~/.$CONFFILE.old"
-                mv ~/.$CONFFILE ~/.$CONFFILE.old
+                echo "WARNING - ~/.${CONFFILE} already exists. Renaming to ~/.${CONFFILE}.old"
+                mv ~/.${CONFFILE} ~/.${CONFFILE}.old
             else
                 echo "WARNING - ~/.$CONFFILE already exists. Deleting it." 
                 rm ~/.$CONFFILE
             fi
         fi
-        ln -s $CONFIGPATH/$BASEFILE ~/.$CONFFILE
+        ln -s ${CONFIGPATH}/${BASEFILE} ~/.${CONFFILE}
     done
 }
 

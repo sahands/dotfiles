@@ -11,28 +11,33 @@ readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(greadlink -m $(dirname $0))
 readonly ARGS="$@"
 
-main() {
-    source $PROGDIR/include.sh
-    # Install Vundle plugins
+
+install_vundle_plugins() {
     echo "Installing MacVim Vundle plugins now."
     mvim -v +PluginInstall +qall
+}
 
-    # Making YouCompleteMe
+make_youcompleteme() {
     echo "Making MacVim plugin YouCompleteMe"
-    cd ../config/vim/bundle/YouCompleteMe
+    pushd ../config/vim/bundle/YouCompleteMe
     ./install.sh --clang-completer --omnisharp-completer
+    popd
+}
 
-<<<<<<< HEAD
-echo "Done"
-=======
-    # Making Command-T
+make_command_t() {
     echo "Making Command-T"
-    cd ../Command-T/ruby/command-t
+    pushd ../config/vim/bundle/Command-T/ruby/command-t
     ruby extconf.rb
     make > /dev/null
+    popd
+}
 
+main() {
+    source ${PROGDIR}/include.sh
+    install_vundle_plugins
+    make_youcompleteme
+    make_command_t
     echo "Done"
 }
 
 main
->>>>>>> a247a3156d257b1eef6ec60186da231f6adeb7f4
