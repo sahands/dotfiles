@@ -73,7 +73,6 @@ set autoindent
 set smarttab
 set noswapfile
 set number                                           " Enable line numbers
-set macmeta                                          " Enable the option key in MacVim
 set nofoldenable                                     " Disable folding by default
 set foldlevelstart=99
 set foldlevel=99
@@ -85,6 +84,13 @@ set noerrorbells                                     " Disable the bell
 set t_vb=
 set splitright                                       " Create new window on the right
 set splitbelow                                       " Create new window below
+
+
+" Mac Only Options
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Darwin"
+    set macmeta                                          " Enable the option key in MacVim
+endif
 
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
