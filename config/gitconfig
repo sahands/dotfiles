@@ -3,12 +3,12 @@
     email = sahands@gmail.com
     signingkey = 7E959827
 
-[push]
-    default = simple
-
-[merge]
-    tool = threesome
-
-[mergetool "threesome"]
-    cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-    trustExitCode = true
+; [push]
+;     default = simple
+;
+; [merge]
+;     tool = threesome
+;
+; [mergetool "threesome"]
+;     cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+;     trustExitCode = true
