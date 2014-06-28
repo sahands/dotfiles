@@ -3,3 +3,4 @@ org.vim.MacVim public.unix-executable all
 org.vim.MacVim public.source-code all
 org.vim.MacVim org.vim.rst-file all
 org.vim.MacVim public.json all
+org.vim.MacVim public.python-script all
