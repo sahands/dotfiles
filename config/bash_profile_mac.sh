@@ -25,3 +25,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Run duti with ~/.duti file as settings
 duti ~/.duti
+
+# Set up gulp bash completion
+eval "$(gulp --completion=bash)"
