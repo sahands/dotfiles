@@ -44,3 +44,6 @@ PS1="[\\A] \\w $ "
 if [ -e ~/.bashrc ] || [ -L ~/.bashrc ]; then
     source ~/.bashrc
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

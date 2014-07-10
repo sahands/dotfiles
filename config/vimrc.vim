@@ -122,7 +122,7 @@ autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_ca
 autocmd Filetype rst setlocal spell spelllang=en_ca
 
 if has("gui_running")
-    set guifont=Droid\ Sans\ Mono:h13
+    set guifont=Droid\ Sans\ Mono:h12
     colorscheme solarized
     let g:solarized_contrast="high"             " Default value is normal
     " Set the theme based on time of day
@@ -180,6 +180,9 @@ autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <
 
 " And make a command for it too
 command! DelTrailingSpace :call <SID>StripTrailingWhitespaces()
+
+" Replace tabs with four spaces
+command! KillTabs :%s/\t/    /g
 
 " Convert $x$ to :math:`x`
 command! Tex2rst :%s/\$\(.\{-}\)\$/:math:`\1`/ge  | :%s/\$\$\(.\{-}\)\$\$/\r\r.. math::\r\r\t\1\r\r/ge
