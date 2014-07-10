@@ -3,12 +3,12 @@
     email = sahands@gmail.com
     signingkey = 2B8C396C
 
-; [push]
-;     default = simple
-;
-; [merge]
-;     tool = threesome
-;
-; [mergetool "threesome"]
-;     cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-;     trustExitCode = true
+[merge]
+    tool = vimdiff
+    ; conflictstyle = diff3
+
+[diff]
+    tool = vimdiff
+
+[mergetool]
+    prompt = false

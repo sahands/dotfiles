@@ -1,5 +1,6 @@
 # Replace vim with mvim
 alias vim='mvim -v'
+alias vimdiff='mvimdiff -v'
 
 # mvim instead of vim
 export EDITOR="mvim -v"
