@@ -45,6 +45,7 @@ Plugin 'ap/vim-css-color'                      " CSS Colors
 Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
 Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
 Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
+Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
 
 " Plugin 'klen/python-mode.git'                " Python development plugin
 " Plugin 'bling/vim-airline'                   " Better status line
@@ -110,6 +111,9 @@ map <C-h> <C-W>h<C-W>_
 map <C-l> <C-W>l<C-W>_
 " vmap v <Plug>(expand_region_expand)                  " pressing v will expand selection
 " vmap <C-v> <Plug>(expand_region_shrink)              " Ctrl+v will shrink
+
+map <C-n> :cn<CR>                                    " Next grep or make entry
+map <C-p> :cp<CR>                                    " Previous grep or make entry
 
 " Enable spell check for some text documents
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
