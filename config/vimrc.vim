@@ -46,6 +46,7 @@ Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
 Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
 Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
 Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
+Plugin 'kchmck/vim-coffee-script'              " Lorem Ipsum generator.
 
 " Plugin 'klen/python-mode.git'                " Python development plugin
 " Plugin 'bling/vim-airline'                   " Better status line
