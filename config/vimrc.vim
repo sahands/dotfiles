@@ -46,7 +46,8 @@ Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
 Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
 Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
 Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
-Plugin 'kchmck/vim-coffee-script'              " Lorem Ipsum generator.
+Plugin 'kchmck/vim-coffee-script'              " CoffeeScript support
+Plugin 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
 
 " Plugin 'klen/python-mode.git'                " Python development plugin
 " Plugin 'bling/vim-airline'                   " Better status line
@@ -176,8 +177,8 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-" Remove trailing whitespaces from C, CPP, Java, PHP, Ruby and Python files on save
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+" Remove trailing whitespaces from C, CPP, Java, PHP, Ruby, Python, and Coffee files on save
+autocmd FileType c,cpp,java,php,ruby,python,coffee autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " And make a command for it too
 command! DelTrailingSpace :call <SID>StripTrailingWhitespaces()
