@@ -48,6 +48,7 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
 Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
 Plugin 'kchmck/vim-coffee-script'              " CoffeeScript support
 Plugin 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
+Plugin 'scrooloose/nerdtree.git'               " File system browsing
 
 " Plugin 'klen/python-mode.git'                " Python development plugin
 " Plugin 'bling/vim-airline'                   " Better status line
@@ -114,8 +115,21 @@ map <C-l> <C-W>l<C-W>_
 " vmap v <Plug>(expand_region_expand)                  " pressing v will expand selection
 " vmap <C-v> <Plug>(expand_region_shrink)              " Ctrl+v will shrink
 
+" EasyMotion shortcuts
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+" QuickFix navigation
 map <C-n> :cn<CR>                                    " Next grep or make entry
 map <C-p> :cp<CR>                                    " Previous grep or make entry
+
+" NERDTree shortcut
+map <Leader>n :NERDTreeToggle<CR>
+
+" Gundo key
+nnoremap <Leader>g :GundoToggle<CR>
 
 " Enable spell check for some text documents
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
@@ -124,7 +138,7 @@ autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_ca
 autocmd Filetype rst setlocal spell spelllang=en_ca
 
 if has("gui_running")
-    set guifont=Droid\ Sans\ Mono:h12
+    set guifont=Droid\ Sans\ Mono:h15
     colorscheme solarized
     let g:solarized_contrast="high"             " Default value is normal
     " Set the theme based on time of day
@@ -142,12 +156,6 @@ if has("gui_running")
     nnoremap <silent> <esc> :noh<cr><esc>       " hitting escape in command mode will clear last search
 endif
 
-" EasyMotion configuration
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
 " MatchItAlways filetypes
 let g:mta_filetypes = {
     \ 'html' : 1,
@@ -159,9 +167,6 @@ let g:mta_filetypes = {
 
 " For vim-gitgutter, set the column bg color to same as number column
 highlight clear SignColumn
-
-" Gundo key
-nnoremap <Leader>g :GundoToggle<CR>
 
 " UltiSnips Settings
 let g:UltiSnipsExpandTrigger="<c-e>"
