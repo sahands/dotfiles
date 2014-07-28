@@ -1213,6 +1213,8 @@
 	aGl2ZXLRFxhUcm9vdIABCBEaIy0yNztBSE5bYo6Qkpeiq7O2v9HU2QAAAAAAAAEBAAAA
 	AAAAABkAAAAAAAAAAAAAAAAAAADb
 	</data>
+	<key>Bell</key>
+	<false/>
 	<key>BlinkText</key>
 	<false/>
 	<key>CommandString</key>
@@ -1552,6 +1554,8 @@
 	<false/>
 	<key>UseBrightBold</key>
 	<true/>
+	<key>VisualBell</key>
+	<true/>
 	<key>blackColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
@@ -1620,7 +1624,7 @@
 	ZmZmg/4CRz+DBTzdPYMgzt4+AYY=
 	</data>
 	<key>name</key>
-	<string>Solarized-Dark</string>
+	<string>Solarized-Dark 1</string>
 	<key>noWarnProcesses</key>
 	<array>
 		<dict>

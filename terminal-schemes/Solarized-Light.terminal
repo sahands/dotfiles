@@ -1279,6 +1279,8 @@
 	cACFAIwAtgDgAOIA5ADmAOsA8QDzAPUA+gECDU4NUA1VDWANaQ13DXsNgg2LDZANnQ2g
 	Da0Nsg26Db0Nzw3SDdcAAAAAAAACAQAAAAAAAAAtAAAAAAAAAAAAAAAAAAAN2Q==
 	</data>
+	<key>Bell</key>
+	<false/>
 	<key>BlinkText</key>
 	<false/>
 	<key>CommandString</key>
@@ -1618,6 +1620,8 @@
 	<false/>
 	<key>UseBrightBold</key>
 	<true/>
+	<key>VisualBell</key>
+	<true/>
 	<key>blackColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
@@ -1686,7 +1690,7 @@
 	ZmZmg/4CRz+DBTzdPYMgzt4+AYY=
 	</data>
 	<key>name</key>
-	<string>Solarized-Light</string>
+	<string>Solarized-Light 1</string>
 	<key>noWarnProcesses</key>
 	<array>
 		<dict>
