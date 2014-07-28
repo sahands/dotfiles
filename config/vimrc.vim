@@ -91,10 +91,14 @@ set splitright                                       " Create new window on the 
 set splitbelow                                       " Create new window below
 
 
-" Mac Only Options
-let os = substitute(system('uname'), "\n", "", "")
-if os == "Darwin"
-    set macmeta                                          " Enable the option key in MacVim
+" Mac Only Options go here
+" let os = substitute(system('uname'), "\n", "", "")
+" if os == "Darwin"
+" endif
+
+" MacVim only options
+if has("gui_macvim")
+    set macmeta                                      " Enable the option key in MacVim
 endif
 
 " Remap some keys
