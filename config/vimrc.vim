@@ -20,7 +20,7 @@ Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style sel
 Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
 Plugin 'tpope/vim-characterize'                " Enable modern, unicode based characterization
 Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
-Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
+" Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
 Plugin 'sjl/gundo.vim'                         " Explore the undo tree
 Plugin 'plasticboy/vim-markdown'               " Markdown support
 Plugin 'majutsushi/tagbar'                     " Source code structure
@@ -32,7 +32,7 @@ Plugin 'leafgarland/typescript-vim'            " TypeScript support
 Plugin 'walm/jshint.vim'                       " Run jshint on js files
 Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
 Plugin 'digitaltoad/vim-jade'                  " Support jade files
-Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
+" Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
 Plugin 'elzr/vim-json'                         " Better JSON support
 Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
 Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for future.
@@ -157,13 +157,13 @@ if has("gui_running")
 endif
 
 " MatchItAlways filetypes
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \ 'htmldjango' : 1,
-    \}
+" let g:mta_filetypes = {
+"     \ 'html' : 1,
+"     \ 'xhtml' : 1,
+"     \ 'xml' : 1,
+"     \ 'jinja' : 1,
+"     \ 'htmldjango' : 1,
+"     \}
 
 " For vim-gitgutter, set the column bg color to same as number column
 highlight clear SignColumn
@@ -211,7 +211,7 @@ au BufNewFile,BufRead *.swig set filetype=htmldjango
 " JsBeautify shortcuts
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType swcss, css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " Disable jsdoc default Ctrl-l mapping
 let g:jsdoc_default_mapping=0
