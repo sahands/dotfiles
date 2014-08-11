@@ -110,7 +110,6 @@ if has("gui_macvim")
     set macmeta                                      " Enable the option key in MacVim
 endif
 
-
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
 nnoremap Q gqq                                       " No ex mode. Should probably map this to something useful
@@ -142,7 +141,6 @@ let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-
 
 " Enable spell check for some text documents
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
@@ -185,6 +183,9 @@ autocmd FileType c,cpp,java,php,ruby,python,coffee autocmd BufWritePre <buffer> 
 " And make a command for it too
 command! DelTrailingSpace :call <SID>StripTrailingWhitespaces()
 
+" Format scss files
+command! ScssFormat silent !sass-convert % % --to=scss
+
 " Replace tabs with four spaces
 command! KillTabs :%s/\t/    /g
 
@@ -208,7 +209,9 @@ au BufNewFile,BufRead *.swig set filetype=htmldjango
 " JsBeautify shortcuts
 autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType swcss, css, scss noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType swcss, css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" ScssFormat shortcut
+autocmd FileType scss noremap <buffer> <c-f> :ScssFormat<cr>
 
 " Disable jsdoc default Ctrl-l mapping
 let g:jsdoc_default_mapping=0
