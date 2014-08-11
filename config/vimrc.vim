@@ -6,50 +6,64 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Plugin 'gmarik/vundle'                         " Let Vundle manage Vundle, required
+
+" Color schemes
 Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
-Plugin 'scrooloose/syntastic'                  " Syntax checker for a variety of files, including Python
-Plugin 'godlygeek/tabular'                     " Tabularize lines
-Plugin 'tomtom/tcomment_vim'                   " Comment lines
-Plugin 'Lokaltog/vim-easymotion'               " Move around with ease
-Plugin 'tpope/vim-surround'                    " Surround text with stuff
-Plugin 'wincent/Command-T'                     " Open files with ease
-Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
-Plugin 'sirver/ultisnips'                      " Snippets
+
+" Multi-language programming, version control, diffing, etc.
 Plugin 'honza/vim-snippets'                    " Snippets repository
-Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
-Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
-Plugin 'tpope/vim-characterize'                " Enable modern, unicode based characterization
-Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
-" Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
-Plugin 'sjl/gundo.vim'                         " Explore the undo tree
-Plugin 'plasticboy/vim-markdown'               " Markdown support
-Plugin 'majutsushi/tagbar'                     " Source code structure
 Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
+Plugin 'scrooloose/syntastic'                  " Syntax checker for a variety of files, including Python
+Plugin 'sirver/ultisnips'                      " Snippets
+Plugin 'tomtom/tcomment_vim'                   " Comment lines
+Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for future.
+Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
+
+" Tabulation, formatting, etc.
+Plugin 'AndrewRadev/splitjoin.vim'             " Split join: gS to split, gJ to join
+Plugin 'godlygeek/tabular'                     " Tabularize lines
+Plugin 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
+Plugin 'tpope/vim-surround'                    " Surround text with stuff
+Plugin 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
+
+" Navigation, targets, copy/pasting, undo, etc.
+Plugin 'Lokaltog/vim-easymotion'               " Move around with ease
+Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
+Plugin 'sjl/gundo.vim'                         " Explore the undo tree
+Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
+Plugin 'vim-scripts/camelcasemotion'           " CamelCaseMotion
+
+" File navigation
+Plugin 'scrooloose/nerdtree.git'               " File system browsing
+Plugin 'wincent/Command-T'                     " Open files with ease
+
+" HTML, CSS, Markdown, reStructuredText, LaTeX
+Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
+Plugin 'ap/vim-css-color'                      " CSS Colors
+Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
+Plugin 'plasticboy/vim-markdown'               " Markdown support
+Plugin 'sahands/vim-rst-headers'               " Format RST file headers
+Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
+
+" JavaScript, CoffeeScript, node, etc.
+Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
+Plugin 'digitaltoad/vim-jade'                  " Support jade files
+Plugin 'elzr/vim-json'                         " Better JSON support
+Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
+Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
+Plugin 'kchmck/vim-coffee-script'              " CoffeeScript support
+Plugin 'leafgarland/typescript-vim'            " TypeScript support
 Plugin 'maksimr/vim-jsbeautify'                " Format JS code
 Plugin 'moll/vim-node'                         " For when I start node programming... if ever!
-Plugin 'vim-scripts/camelcasemotion'           " CamelCaseMotion
-Plugin 'leafgarland/typescript-vim'            " TypeScript support
-Plugin 'walm/jshint.vim'                       " Run jshint on js files
-Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
-Plugin 'digitaltoad/vim-jade'                  " Support jade files
-" Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
-Plugin 'elzr/vim-json'                         " Better JSON support
-Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
-Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for future.
-Plugin 'AndrewRadev/splitjoin.vim'             " Split join: gS to split, gJ to join
-Plugin 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
-Plugin 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
-Plugin 'sjl/threesome.vim'                     " Merge tool
-Plugin 'sahands/vim-rst-headers'               " Format RST file headers
-Plugin 'ap/vim-css-color'                      " CSS Colors
-Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
-Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
-Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
-Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
-Plugin 'kchmck/vim-coffee-script'              " CoffeeScript support
 Plugin 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
-Plugin 'scrooloose/nerdtree.git'               " File system browsing
+Plugin 'walm/jshint.vim'                       " Run jshint on js files
 
+" Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
+" Plugin 'sjl/threesome.vim'                     " Merge tool
+" Plugin 'majutsushi/tagbar'                     " Source code structure
+" Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
+" Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
+" Plugin 'tpope/vim-characterize'                " Enable modern, unicode based characterization
 " Plugin 'klen/python-mode.git'                " Python development plugin
 " Plugin 'bling/vim-airline'                   " Better status line
 " Plugin 'terryma/vim-expand-region'           "
@@ -69,55 +83,43 @@ filetype plugin indent on                   " required
 
 " Basic settings
 syntax on
-set tabstop=4
-set shiftwidth=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
 set autoindent
-set smarttab
-set noswapfile
-set number                                           " Enable line numbers
-set nofoldenable                                     " Disable folding by default
-set foldlevelstart=99
-set foldlevel=99
-set hlsearch                                         " Highlight search
+set autoread                                         " Update modified files automatically
 set bs=2                                             " Backspace behaviour
-set ruler                                            " Show cursor position in status bar
+set expandtab
+set foldlevel=99
+set foldlevelstart=99
+set hlsearch                                         " Highlight search
 set iskeyword-=_
 set noerrorbells                                     " Disable the bell
-set t_vb=
-set splitright                                       " Create new window on the right
+set nofoldenable                                     " Disable folding by default
+set noswapfile
+set number                                           " Enable line numbers
+set ruler                                            " Show cursor position in status bar
+set shiftwidth=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
 set splitbelow                                       " Create new window below
-
-
-" Mac Only Options go here
-" let os = substitute(system('uname'), "\n", "", "")
-" if os == "Darwin"
-" endif
+set splitright                                       " Create new window on the right
+set t_vb=
+set tabstop=4
 
 " MacVim only options
 if has("gui_macvim")
     set macmeta                                      " Enable the option key in MacVim
 endif
 
+
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
-" let mapleader=" "
-" let mapleader="\<Space>"                           " Set leader key to space (doesn't seem to work)
-
-nnoremap K i<CR><Esc>                                " Capital K inserts a newline character where you are
-nnoremap Q gqq                                       " Die ex mode, die. Should probably map this to something useful
-nnoremap <Leader>s :TagbarToggle<CR>                 " Open TagBar
+nnoremap Q gqq                                       " No ex mode. Should probably map this to something useful
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc> " F3 will insert current date and time
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-map Y y$                                             " Y will yank to end of line
 map <C-J> <C-W>j<C-W>_                               " CTRL-J to focus on above window and maximize
 map <C-k> <C-W>k<C-W>_                               " Etc.
 map <C-h> <C-W>h<C-W>_
 map <C-l> <C-W>l<C-W>_
-" vmap v <Plug>(expand_region_expand)                  " pressing v will expand selection
-" vmap <C-v> <Plug>(expand_region_shrink)              " Ctrl+v will shrink
 
 " EasyMotion shortcuts
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -135,6 +137,13 @@ map <Leader>n :NERDTreeToggle<CR>
 " Gundo key
 nnoremap <Leader>g :GundoToggle<CR>
 
+" UltiSnips keys
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+
 " Enable spell check for some text documents
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
 autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_ca
@@ -142,41 +151,25 @@ autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_ca
 autocmd Filetype rst setlocal spell spelllang=en_ca
 
 if has("gui_running")
-    set guifont=Droid\ Sans\ Mono:h15
+    set guifont=Droid\ Sans\ Mono:h11
     colorscheme solarized
     let g:solarized_contrast="high"             " Default value is normal
+    set background=dark
     " Set the theme based on time of day
-    if strftime("%H") < 19  && strftime("%H") > 5
-        set background=light
-    else
-        set background=dark
-    endif
+    " if strftime("%H") < 19  && strftime("%H") > 5
+    "     set background=light
+    " else
+    "     set background=dark
+    " endif
 
     set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_        " Display invisible characters
-    " Except for javascript files hid the EOL and NBSP
-    autocmd FileType javascript set lcs=tab:▸\ ,trail:·,eol:\ ,nbsp:\
     set list
     autocmd! GUIEnter * set vb t_vb=            " Enable visual bell
     nnoremap <silent> <esc> :noh<cr><esc>       " hitting escape in command mode will clear last search
 endif
 
-" MatchItAlways filetypes
-" let g:mta_filetypes = {
-"     \ 'html' : 1,
-"     \ 'xhtml' : 1,
-"     \ 'xml' : 1,
-"     \ 'jinja' : 1,
-"     \ 'htmldjango' : 1,
-"     \}
-
 " For vim-gitgutter, set the column bg color to same as number column
 highlight clear SignColumn
-
-" UltiSnips Settings
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
 
 " Some commands
 fun! <SID>StripTrailingWhitespaces()
@@ -213,9 +206,9 @@ au BufNewFile,BufRead *.html set filetype=htmldjango
 au BufNewFile,BufRead *.swig set filetype=htmldjango
 
 " JsBeautify shortcuts
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType swcss, css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType swcss, css, scss noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " Disable jsdoc default Ctrl-l mapping
 let g:jsdoc_default_mapping=0
