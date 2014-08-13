@@ -184,7 +184,11 @@ autocmd FileType c,cpp,java,php,ruby,python,coffee autocmd BufWritePre <buffer> 
 command! DelTrailingSpace :call <SID>StripTrailingWhitespaces()
 
 " Format scss files
-command! ScssFormat silent !sass-convert % % --to=scss
+fun! ScssFormat()
+    :w
+    :silent !sass-convert % % --to=scss
+    :e %
+endfun
 
 " Replace tabs with four spaces
 command! KillTabs :%s/\t/    /g
@@ -211,7 +215,7 @@ autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType swcss, css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " ScssFormat shortcut
-autocmd FileType scss noremap <buffer> <c-f> :ScssFormat<cr>
+autocmd FileType scss noremap <buffer> <c-f> :call ScssFormat()<cr>
 
 " Disable jsdoc default Ctrl-l mapping
 let g:jsdoc_default_mapping=0
