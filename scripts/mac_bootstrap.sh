@@ -13,7 +13,7 @@ xcode-select --install
 
 # This is needed for greadlink used in a bit. So first thing let's install
 # coreutils.
-port_install coreutils
+port install coreutils
 
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(greadlink -m $(dirname $0))

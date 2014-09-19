@@ -219,3 +219,6 @@ autocmd FileType scss noremap <buffer> <c-f> :call ScssFormat()<cr>
 
 " Disable jsdoc default Ctrl-l mapping
 let g:jsdoc_default_mapping=0
+
+" Fix the "User defined pattern..." issue
+let g:clang_user_options='|| exit 0'
