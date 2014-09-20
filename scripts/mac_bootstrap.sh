@@ -65,6 +65,8 @@ select_mac_port_variants() {
 
 create_shortcuts() {
     echo "Creating some shortcuts..."
+    rm /opt/local/bin/flake8
+    rm /opt/local/bin/pygmentize
     ln -s /opt/local/bin/flake8-${PYV} /opt/local/bin/flake8
     ln -s /opt/local/bin/pygmentize-${PYV} /opt/local/bin/pygmentize
     hr
