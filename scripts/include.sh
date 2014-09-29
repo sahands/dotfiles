@@ -6,8 +6,10 @@ set -o pipefail
 IFS=$'\n\t'
 
 # Version of Python to use
-readonly PY=34
-readonly PYV="3.4"
+# readonly PY=34
+# readonly PYV="3.4"
+readonly PY=27
+readonly PYV="2.7"
 readonly RUBY=19
 readonly RUBYV="1.9.2"
 readonly VARIANTS_FILE="/opt/local/etc/macports/variants.conf"

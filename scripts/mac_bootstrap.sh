@@ -81,8 +81,34 @@ install_bash() {
 }
 
 install_python_libraries() {
-    for P in pip virtualenv ipython scipy numpy sympy pandas matplotlib \
-        scikit-learn nltk pep8 flake8 jedi pymongo pygments zmq nose tz flask
+    for P in \
+        pip \
+        virtualenv \
+        ipython \
+        pep8 \
+        flake8 \
+        jedi \
+        pymongo \
+        pygments \
+        zmq \
+        nose \
+        tz \
+        flask
+    do
+        port_install py${PY}-${P}
+    done
+    hr
+}
+
+install_python_data_libraries() {
+    for P in \
+        scipy \
+        numpy \
+        sympy \
+        pandas \
+        matplotlib \
+        scikit-learn \
+        nltk
     do
         port_install py${PY}-${P}
     done

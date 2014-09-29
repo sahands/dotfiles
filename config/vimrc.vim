@@ -11,12 +11,14 @@ Plugin 'gmarik/vundle'                         " Let Vundle manage Vundle, requi
 Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
 
 " Multi-language programming, version control, diffing, etc.
+Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
 Plugin 'honza/vim-snippets'                    " Snippets repository
 Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
 Plugin 'scrooloose/syntastic'                  " Syntax checker for a variety of files, including Python
 Plugin 'sirver/ultisnips'                      " Snippets
 Plugin 'tomtom/tcomment_vim'                   " Comment lines
 Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for future.
+Plugin 'klen/python-mode.git'                  " Python development plugin
 Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
 
 " Tabulation, formatting, etc.
@@ -58,23 +60,22 @@ Plugin 'moll/vim-node'                         " For when I start node programmi
 Plugin 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
 Plugin 'walm/jshint.vim'                       " Run jshint on js files
 
+" Plugin 'davidhalter/jedi-vim'                  " Python jedi auto-completion
 " Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
 " Plugin 'sjl/threesome.vim'                     " Merge tool
 " Plugin 'majutsushi/tagbar'                     " Source code structure
 " Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
 " Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
 " Plugin 'tpope/vim-characterize'                " Enable modern, unicode based characterization
-" Plugin 'klen/python-mode.git'                " Python development plugin
-" Plugin 'bling/vim-airline'                   " Better status line
-" Plugin 'terryma/vim-expand-region'           "
-" Plugin 'justinmk/vim-sneak'                  " Alternative to EasyMotion
-" Plugin 'altercation/vim-colors-solarized'    " Great color scheme
-" Plugin 'lepture/vim-jinja'                   " Jinja2 support
-" Plugin 'Rykka/riv.vim'                       " For rst files... Seems a bit buggy right now
-" Plugin 'vim-scripts/pep8'                    " Not needed with syntastic
-" Plugin 'nvie/vim-flake8'                     " Same as pep8
-" Plugin 'flazz/vim-colorschemes'              " Using solarized for now
-" Plugin 'airblade/vim-gitgutter'              " Add a column to the left with what's been added, changed, etc.
+" Plugin 'bling/vim-airline'                     " Better status line
+" Plugin 'terryma/vim-expand-region'             "
+" Plugin 'justinmk/vim-sneak'                    " Alternative to EasyMotion
+" Plugin 'altercation/vim-colors-solarized'      " Great color scheme
+" Plugin 'lepture/vim-jinja'                     " Jinja2 support
+" Plugin 'Rykka/riv.vim'                         " For rst files... Seems a bit buggy right now
+" Plugin 'vim-scripts/pep8'                      " Not needed with syntastic
+" Plugin 'nvie/vim-flake8'                       " Same as pep8
+" Plugin 'flazz/vim-colorschemes'                " Using solarized for now
 " Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
 
 filetype plugin indent on                   " required
@@ -190,6 +191,12 @@ fun! ScssFormat()
     :e %
 endfun
 
+" Copy the header and replace with #
+" TODO: Figure out a way to do with without 3 commands!
+command! MdHeader1 :t.|s/./#/g
+command! MdHeader2 :t.|s/./=/g
+command! MdHeader3 :t.|s/./-/g
+
 " Replace tabs with four spaces
 command! KillTabs :%s/\t/    /g
 
@@ -222,3 +229,6 @@ let g:jsdoc_default_mapping=0
 
 " Fix the "User defined pattern..." issue
 let g:clang_user_options='|| exit 0'
+
+" Disable markdownfolding
+let g:vim_markdown_folding_disabled=1
