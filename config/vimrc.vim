@@ -151,9 +151,12 @@ autocmd Filetype rst setlocal spell spelllang=en_ca
 
 if has("gui_running")
     set guifont=Droid\ Sans\ Mono:h11
-    colorscheme solarized
-    let g:solarized_contrast="high"             " Default value is normal
-    set background=dark
+    colorscheme hybrid
+
+    " set background=dark
+    " colorscheme solarized
+    " let g:solarized_contrast="high"             " Default value is normal
+    " set background=dark
     " Set the theme based on time of day
     " if strftime("%H") < 19  && strftime("%H") > 5
     "     set background=light
