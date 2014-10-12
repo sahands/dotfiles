@@ -2,3 +2,13 @@ snippet fromfuture
 	from __future__ import division
 	from __future__ import print_function
 	from __future__ import unicode_literals
+
+snippet next
+	def __next__(self):
+		pass
+
+	next = __next__
+
+snippet iter
+	def __iter__(self):
+		return self

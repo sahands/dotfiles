@@ -18,7 +18,6 @@ Plugin 'scrooloose/syntastic'                  " Syntax checker for a variety of
 Plugin 'sirver/ultisnips'                      " Snippets
 Plugin 'tomtom/tcomment_vim'                   " Comment lines
 Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for future.
-Plugin 'klen/python-mode.git'                  " Python development plugin
 Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
 
 " Tabulation, formatting, etc.
@@ -77,9 +76,10 @@ Plugin 'walm/jshint.vim'                       " Run jshint on js files
 " Plugin 'nvie/vim-flake8'                       " Same as pep8
 " Plugin 'flazz/vim-colorschemes'                " Using solarized for now
 " Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
+" Plugin 'klen/python-mode.git'                  " Python development plugin
+
 
 filetype plugin indent on                   " required
-
 " ----------  End of Vundle setup code -------------
 
 " Basic settings
@@ -232,3 +232,8 @@ let g:clang_user_options='|| exit 0'
 
 " Disable markdownfolding
 let g:vim_markdown_folding_disabled=1
+
+
+" Disable mccabe for now.
+" let g:pymode_lint_checkers=['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers=['pyflakes', 'pep8']
