@@ -6,15 +6,9 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
-# Readonly globals
-readonly PROGNAME=$(basename $0)
-readonly PROGDIR=$(greadlink -m $(dirname $0))
-readonly ARGS="$@"
-
-
 install_vundle_plugins() {
     echo "Installing MacVim Vundle plugins now."
-    mvim -v +PluginInstall +qall
+    vim -v +PluginInstall +qall
 }
 
 make_youcompleteme() {
@@ -33,7 +27,6 @@ make_command_t() {
 }
 
 main() {
-    source ${PROGDIR}/include.sh
     install_vundle_plugins
     make_youcompleteme
     make_command_t

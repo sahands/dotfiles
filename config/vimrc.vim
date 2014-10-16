@@ -145,7 +145,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Enable spell check for some text documents
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
-autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_ca
+" autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_ca
 autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_ca
 autocmd Filetype rst setlocal spell spelllang=en_ca
 
