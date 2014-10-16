@@ -5,81 +5,88 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Vundle is the plugin manager used
 Plugin 'gmarik/vundle'                         " Let Vundle manage Vundle, required
 
-" Color schemes
-Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
+" File navigation plugins
+Plugin 'wincent/Command-T'                     " Open files with ease
+Plugin 'scrooloose/nerdtree.git'               " File system browsing
 
-" Multi-language programming, version control, diffing, etc.
-Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
-Plugin 'honza/vim-snippets'                    " Snippets repository
-Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
+" Undo/Redo and Copy/Paste plugins
+Plugin 'sjl/gundo.vim'                         " Explore the undo tree
+Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
+
+" Multi-purpose and programming related plugins
 Plugin 'scrooloose/syntastic'                  " Syntax checker for a variety of files, including Python
-Plugin 'sirver/ultisnips'                      " Snippets
 Plugin 'tomtom/tcomment_vim'                   " Comment lines
-Plugin 'tpope/vim-fugitive'                    " Git integration. Maybe for future.
+Plugin 'sirver/ultisnips'                      " Snippets
+Plugin 'tpope/vim-fugitive'                    " Git integration
+Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
+Plugin 'honza/vim-snippets'                    " Snippets repository
 Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
 
-" Tabulation, formatting, etc.
+" JavaScript/CoffeeScript/Etc. specific
+Plugin 'walm/jshint.vim'                       " Run jshint on js files
+Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
+Plugin 'kchmck/vim-coffee-script'              " CoffeeScript support
+Plugin 'digitaltoad/vim-jade'                  " Support jade files
+Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
+Plugin 'maksimr/vim-jsbeautify'                " Format JS code
+Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
+Plugin 'elzr/vim-json'                         " Better JSON support
+Plugin 'moll/vim-node'                         " For when I start node programming... if ever!
+Plugin 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
+
+" LaTeX/MarkDown/Rst specific
+Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
+Plugin 'plasticboy/vim-markdown'               " Markdown support
+Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
+Plugin 'sahands/vim-rst-headers'               " Format RST file headers
+
+" HTML/CSS/Jinja/Etc. Related
+Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
+Plugin 'ap/vim-css-color'                      " CSS Colors
+Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
+"
+" Movement and selection plugins
+Plugin 'vim-scripts/camelcasemotion'           " CamelCaseMotion
+Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
+Plugin 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
+Plugin 'Lokaltog/vim-easymotion'               " Move around with ease
+
+" Text modification plugins
 Plugin 'AndrewRadev/splitjoin.vim'             " Split join: gS to split, gJ to join
 Plugin 'godlygeek/tabular'                     " Tabularize lines
 Plugin 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
 Plugin 'tpope/vim-surround'                    " Surround text with stuff
-Plugin 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
 
-" Navigation, targets, copy/pasting, undo, etc.
-Plugin 'Lokaltog/vim-easymotion'               " Move around with ease
-Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
-Plugin 'sjl/gundo.vim'                         " Explore the undo tree
-Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
-Plugin 'vim-scripts/camelcasemotion'           " CamelCaseMotion
-
-" File navigation
-Plugin 'scrooloose/nerdtree.git'               " File system browsing
-Plugin 'wincent/Command-T'                     " Open files with ease
-
-" HTML, CSS, Markdown, reStructuredText, LaTeX
-Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
-Plugin 'ap/vim-css-color'                      " CSS Colors
-Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
-Plugin 'plasticboy/vim-markdown'               " Markdown support
-Plugin 'sahands/vim-rst-headers'               " Format RST file headers
-Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
-
-" JavaScript, CoffeeScript, node, etc.
-Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
-Plugin 'digitaltoad/vim-jade'                  " Support jade files
-Plugin 'elzr/vim-json'                         " Better JSON support
-Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
-Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
-Plugin 'kchmck/vim-coffee-script'              " CoffeeScript support
-Plugin 'leafgarland/typescript-vim'            " TypeScript support
-Plugin 'maksimr/vim-jsbeautify'                " Format JS code
-Plugin 'moll/vim-node'                         " For when I start node programming... if ever!
-Plugin 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
-Plugin 'walm/jshint.vim'                       " Run jshint on js files
-
-" Plugin 'davidhalter/jedi-vim'                  " Python jedi auto-completion
-" Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
-" Plugin 'sjl/threesome.vim'                     " Merge tool
-" Plugin 'majutsushi/tagbar'                     " Source code structure
-" Plugin 'marijnh/tern_for_vim'                  " Better autocomplete for JavaScript
-" Plugin 'valloric/MatchTagAlways'               " Highlight the HTML tag you are currently in.
-" Plugin 'tpope/vim-characterize'                " Enable modern, unicode based characterization
-" Plugin 'bling/vim-airline'                     " Better status line
-" Plugin 'terryma/vim-expand-region'             "
-" Plugin 'justinmk/vim-sneak'                    " Alternative to EasyMotion
-" Plugin 'altercation/vim-colors-solarized'      " Great color scheme
-" Plugin 'lepture/vim-jinja'                     " Jinja2 support
-" Plugin 'Rykka/riv.vim'                         " For rst files... Seems a bit buggy right now
-" Plugin 'vim-scripts/pep8'                      " Not needed with syntastic
-" Plugin 'nvie/vim-flake8'                       " Same as pep8
-" Plugin 'flazz/vim-colorschemes'                " Using solarized for now
-" Plugin 'vim-scripts/taglist.vim'               " Source code structure browsing
-" Plugin 'klen/python-mode.git'                  " Python development plugin
+" Color schemes
+Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
 
 
-filetype plugin indent on                   " required
+" Plugins for possible future use
+
+" Plugin 'tpope/vim-characterize'              " Enable modern, unicode based characterization
+" Plugin 'leafgarland/typescript-vim'          " TypeScript support
+" Plugin 'sjl/threesome.vim'                   " Merge tool
+" Plugin 'majutsushi/tagbar'                   " Source code structure
+" Plugin 'valloric/MatchTagAlways'             " Highlight the HTML tag you are currently in.
+" Plugin 'vim-scripts/pep8'                    " Not needed with syntastic
+" Plugin 'klen/python-mode.git'                " Python development plugin
+" Plugin 'Rykka/riv.vim'                       " For rst files... Seems a bit buggy right now
+" Plugin 'vim-scripts/taglist.vim'             " Source code structure browsing
+" Plugin 'marijnh/tern_for_vim'                " Better autocomplete for JavaScript
+" Plugin 'bling/vim-airline'                   " Better status line
+" Plugin 'altercation/vim-colors-solarized'    " Great color scheme
+" Plugin 'flazz/vim-colorschemes'              " Using solarized for now
+" Plugin 'terryma/vim-expand-region'           "
+" Plugin 'nvie/vim-flake8'                     " Same as pep8
+" Plugin 'airblade/vim-gitgutter'              " Add a column to the left with what's been added, changed, etc.
+" Plugin 'lepture/vim-jinja'                   " Jinja2 support
+" Plugin 'justinmk/vim-sneak'                  " Alternative to EasyMotion
+
+
+filetype plugin indent on                      " required by vundle
 " ----------  End of Vundle setup code -------------
 
 " Basic settings
