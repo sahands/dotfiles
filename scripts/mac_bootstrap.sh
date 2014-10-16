@@ -5,6 +5,16 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
+
+# Before starting anything, let's make sure XCode Command Line Utils are
+# installed
+
+xcode-select --install
+
+# This is needed for greadlink used in a bit. So first thing let's install
+# coreutils.
+port install coreutils
+
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(greadlink -m $(dirname $0))
 readonly ARGS="$@"
@@ -55,6 +65,8 @@ select_mac_port_variants() {
 
 create_shortcuts() {
     echo "Creating some shortcuts..."
+    rm /opt/local/bin/flake8
+    rm /opt/local/bin/pygmentize
     ln -s /opt/local/bin/flake8-${PYV} /opt/local/bin/flake8
     ln -s /opt/local/bin/pygmentize-${PYV} /opt/local/bin/pygmentize
     hr
@@ -69,8 +81,34 @@ install_bash() {
 }
 
 install_python_libraries() {
-    for P in pip virtualenv ipython scipy numpy sympy pandas matplotlib \
-        scikit-learn nltk pep8 flake8 jedi pymongo pygments zmq nose tz flask
+    for P in \
+        pip \
+        virtualenv \
+        ipython \
+        pep8 \
+        flake8 \
+        jedi \
+        pymongo \
+        pygments \
+        zmq \
+        nose \
+        tz \
+        flask
+    do
+        port_install py${PY}-${P}
+    done
+    hr
+}
+
+install_python_data_libraries() {
+    for P in \
+        scipy \
+        numpy \
+        sympy \
+        pandas \
+        matplotlib \
+        scikit-learn \
+        nltk
     do
         port_install py${PY}-${P}
     done

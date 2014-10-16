@@ -87,37 +87,31 @@ Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercat
 
 
 filetype plugin indent on                      " required by vundle
-
 " ----------  End of Vundle setup code -------------
 
 " Basic settings
 syntax on
-set tabstop=4
-set shiftwidth=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
 set autoindent
-set smarttab
-set noswapfile
-set number                                           " Enable line numbers
-set nofoldenable                                     " Disable folding by default
-set foldlevelstart=99
-set foldlevel=99
-set hlsearch                                         " Highlight search
+set autoread                                         " Update modified files automatically
 set bs=2                                             " Backspace behaviour
-set ruler                                            " Show cursor position in status bar
+set expandtab
+set foldlevel=99
+set foldlevelstart=99
+set hlsearch                                         " Highlight search
 set iskeyword-=_
 set noerrorbells                                     " Disable the bell
-set t_vb=
-set splitright                                       " Create new window on the right
+set nofoldenable                                     " Disable folding by default
+set noswapfile
+set number                                           " Enable line numbers
+set ruler                                            " Show cursor position in status bar
+set shiftwidth=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
 set splitbelow                                       " Create new window below
-
-
-" Mac Only Options go here
-" let os = substitute(system('uname'), "\n", "", "")
-" if os == "Darwin"
-" endif
+set splitright                                       " Create new window on the right
+set t_vb=
+set tabstop=4
 
 " MacVim only options
 if has("gui_macvim")
@@ -126,21 +120,13 @@ endif
 
 " Remap some keys
 let mapleader=","                                    " Set leader key to comma
-" let mapleader=" "
-" let mapleader="\<Space>"                           " Set leader key to space (doesn't seem to work)
-
-nnoremap K i<CR><Esc>                                " Capital K inserts a newline character where you are
-nnoremap Q gqq                                       " Die ex mode, die. Should probably map this to something useful
-nnoremap <Leader>s :TagbarToggle<CR>                 " Open TagBar
+nnoremap Q gqq                                       " No ex mode. Should probably map this to something useful
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %H:%M")<CR><Esc> " F3 will insert current date and time
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-map Y y$                                             " Y will yank to end of line
 map <C-J> <C-W>j<C-W>_                               " CTRL-J to focus on above window and maximize
 map <C-k> <C-W>k<C-W>_                               " Etc.
 map <C-h> <C-W>h<C-W>_
 map <C-l> <C-W>l<C-W>_
-" vmap v <Plug>(expand_region_expand)                  " pressing v will expand selection
-" vmap <C-v> <Plug>(expand_region_shrink)              " Ctrl+v will shrink
 
 " EasyMotion shortcuts
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -158,6 +144,12 @@ map <Leader>n :NERDTreeToggle<CR>
 " Gundo key
 nnoremap <Leader>g :GundoToggle<CR>
 
+" UltiSnips keys
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
 " Enable spell check for some text documents
 autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en_ca
 autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=en_ca
@@ -165,41 +157,28 @@ autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_ca
 autocmd Filetype rst setlocal spell spelllang=en_ca
 
 if has("gui_running")
-    set guifont=Droid\ Sans\ Mono:h15
-    colorscheme solarized
-    let g:solarized_contrast="high"             " Default value is normal
+    set guifont=Droid\ Sans\ Mono:h11
+    colorscheme hybrid
+
+    " set background=dark
+    " colorscheme solarized
+    " let g:solarized_contrast="high"             " Default value is normal
+    " set background=dark
     " Set the theme based on time of day
-    if strftime("%H") < 19  && strftime("%H") > 5
-        set background=light
-    else
-        set background=dark
-    endif
+    " if strftime("%H") < 19  && strftime("%H") > 5
+    "     set background=light
+    " else
+    "     set background=dark
+    " endif
 
     set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_        " Display invisible characters
-    " Except for javascript files hid the EOL and NBSP
-    autocmd FileType javascript set lcs=tab:▸\ ,trail:·,eol:\ ,nbsp:\
     set list
     autocmd! GUIEnter * set vb t_vb=            " Enable visual bell
     nnoremap <silent> <esc> :noh<cr><esc>       " hitting escape in command mode will clear last search
 endif
 
-" MatchItAlways filetypes
-" let g:mta_filetypes = {
-"     \ 'html' : 1,
-"     \ 'xhtml' : 1,
-"     \ 'xml' : 1,
-"     \ 'jinja' : 1,
-"     \ 'htmldjango' : 1,
-"     \}
-
 " For vim-gitgutter, set the column bg color to same as number column
 highlight clear SignColumn
-
-" UltiSnips Settings
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
 
 " Some commands
 fun! <SID>StripTrailingWhitespaces()
@@ -214,6 +193,19 @@ autocmd FileType c,cpp,java,php,ruby,python,coffee autocmd BufWritePre <buffer> 
 
 " And make a command for it too
 command! DelTrailingSpace :call <SID>StripTrailingWhitespaces()
+
+" Format scss files
+fun! ScssFormat()
+    :w
+    :silent !sass-convert % % --to=scss
+    :e %
+endfun
+
+" Copy the header and replace with #
+" TODO: Figure out a way to do with without 3 commands!
+command! MdHeader1 :t.|s/./#/g
+command! MdHeader2 :t.|s/./=/g
+command! MdHeader3 :t.|s/./-/g
 
 " Replace tabs with four spaces
 command! KillTabs :%s/\t/    /g
@@ -236,9 +228,22 @@ au BufNewFile,BufRead *.html set filetype=htmldjango
 au BufNewFile,BufRead *.swig set filetype=htmldjango
 
 " JsBeautify shortcuts
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType htmldjango noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType swcss, css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" ScssFormat shortcut
+autocmd FileType scss noremap <buffer> <c-f> :call ScssFormat()<cr>
 
 " Disable jsdoc default Ctrl-l mapping
 let g:jsdoc_default_mapping=0
+
+" Fix the "User defined pattern..." issue
+let g:clang_user_options='|| exit 0'
+
+" Disable markdownfolding
+let g:vim_markdown_folding_disabled=1
+
+
+" Disable mccabe for now.
+" let g:pymode_lint_checkers=['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers=['pyflakes', 'pep8']

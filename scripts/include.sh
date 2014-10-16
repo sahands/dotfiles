@@ -6,6 +6,8 @@ set -o pipefail
 IFS=$'\n\t'
 
 # Version of Python to use
+# readonly PY=34
+# readonly PYV="3.4"
 readonly PY=27
 readonly PYV="2.7"
 readonly RUBY=19
