@@ -31,11 +31,16 @@ shopt -s histappend
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
-# `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
-shopt -s autocd
+# The following two are Bash 4 features
+VERSION=( ${BASH_VERSION//./ } ) 
+if [ ${VERSION[0]} -eq "4" ]
+then
+    # `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+    shopt -s autocd
 
-# Recursive globbing, e.g. `echo **/*.txt`
-shopt -s globstar
+    # Recursive globbing, e.g. `echo **/*.txt`
+    shopt -s globstar
+fi
 
 # Set the prompt
 PS1="[\\A] \\w $ "

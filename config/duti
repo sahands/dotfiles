@@ -1,7 +1,6 @@
 org.vim.MacVim      com.netscape.javascript-source      all
 org.vim.MacVim      org.vim.css-file                    all
 org.vim.MacVim      org.vim.rst-file                    all
-org.vim.MacVim      public.html                         all
 org.vim.MacVim      public.json                         all
 org.vim.MacVim      public.plain-text                   all
 org.vim.MacVim      public.python-script                all

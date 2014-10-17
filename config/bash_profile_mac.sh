@@ -25,7 +25,9 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # alias ls='gls --color=auto'
 
 # Run duti with ~/.duti file as settings
-duti ~/.duti
+# On second thought, let's run this manually when needed
+# duti ~/.duti
 
 # Set up gulp bash completion
-eval "$(gulp --completion=bash)"
+# Disabling for now
+# eval "$(gulp --completion=bash)"
