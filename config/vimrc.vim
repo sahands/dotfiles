@@ -9,14 +9,16 @@ call vundle#rc()
 Plugin 'gmarik/vundle'                         " Let Vundle manage Vundle, required
 
 " File navigation plugins
-Plugin 'wincent/Command-T'                     " Open files with ease
-Plugin 'scrooloose/nerdtree.git'               " File system browsing
+" Plugin 'wincent/Command-T'                     " Open files with ease
+Plugin 'kien/ctrlp.vim'                        " Open files, buffers, tags, etc with ease
+Plugin 'scrooloose/nerdtree'               " File system browsing
 
 " Undo/Redo and Copy/Paste plugins
 Plugin 'sjl/gundo.vim'                         " Explore the undo tree
 Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
 
 " Multi-purpose and programming related plugins
+Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
 Plugin 'scrooloose/syntastic'                  " Syntax checker for a variety of files, including Python
 Plugin 'tomtom/tcomment_vim'                   " Comment lines
 Plugin 'sirver/ultisnips'                      " Snippets
@@ -81,7 +83,6 @@ Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercat
 " Plugin 'flazz/vim-colorschemes'              " Using solarized for now
 " Plugin 'terryma/vim-expand-region'           "
 " Plugin 'nvie/vim-flake8'                     " Same as pep8
-" Plugin 'airblade/vim-gitgutter'              " Add a column to the left with what's been added, changed, etc.
 " Plugin 'lepture/vim-jinja'                   " Jinja2 support
 " Plugin 'justinmk/vim-sneak'                  " Alternative to EasyMotion
 
@@ -247,3 +248,7 @@ let g:vim_markdown_folding_disabled=1
 " Disable mccabe for now.
 " let g:pymode_lint_checkers=['pyflakes', 'pep8', 'mccabe']
 let g:pymode_lint_checkers=['pyflakes', 'pep8']
+
+" Ctrl P settings
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_cmd = 'CtrlP'
