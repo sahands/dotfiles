@@ -46,8 +46,9 @@ Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
 Plugin 'sahands/vim-rst-headers'               " Format RST file headers
 
 " HTML/CSS/Jinja/Etc. Related
-Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
 Plugin 'ap/vim-css-color'                      " CSS Colors
+Plugin 'mattn/emmet-vim'                       " Quickly edit HTML by typing tags (e.g. 'div>ul>li*3' and typing '<c-y>,')
+Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
 Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
 "
 " Movement and selection plugins

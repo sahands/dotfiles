@@ -43,7 +43,8 @@ then
 fi
 
 # Set the prompt
-PS1="[\\A] \\w $ "
+PS1="[\\A] \\w $ "  # Time followed by current directory
+# PS1="[\!] \\w \$ "  # Current command history number followed by current directory
 
 # Include bashrc if it exists
 if [ -e ~/.bashrc ] || [ -L ~/.bashrc ]; then
