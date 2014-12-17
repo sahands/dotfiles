@@ -5,6 +5,10 @@ alias vimdiff='mvimdiff -v'
 # mvim instead of vim
 export EDITOR="mvim -v"
 
+# Use MacPorts bash instead of /bin/bash
+export SHELL="/opt/local/bin/bash"
+export BASH="/opt/local/bin/bash"
+
 # Enable colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
