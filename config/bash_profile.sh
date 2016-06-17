@@ -1,12 +1,6 @@
 # Use vim anytime an editor is needed by bash
 export EDITOR="vim"
 
-# Load Mac specific settings if on a Mac
-PLATFORM=`uname`
-if [[ "$PLATFORM" == 'Darwin' ]]; then
-    source ~/.bash_profile_mac
-fi
-
 # Use vi keyboard shortcuts in bash
 set -o vi
 
@@ -51,7 +45,13 @@ if [ -e ~/.bashrc ] || [ -L ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# Include aliases file if it exits
+if [ -e ~/.bash_aliases ] || [ -L ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
 
-alias blog="cd ~/Projects/website/content/posts/"
+# Load Mac specific settings if on a Mac
+PLATFORM=`uname`
+if [[ "$PLATFORM" == 'Darwin' ]]; then
+    source ~/.bash_profile_mac
+fi
