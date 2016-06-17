@@ -12,21 +12,6 @@ readonly PY=27
 readonly PYV="2.7"
 readonly RUBY=19
 readonly RUBYV="1.9.2"
-readonly VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
-
-# Functions to install port and pip packages
-function port_install {
-    FILE=logs/port/${1}.log 
-    port install -f $1 2> ${FILE} > ${FILE}
-    if [ $? -eq 0 ]
-    then
-        echo -n "port - installed $1 "
-        port list $1 2> /dev/null | awk -F' ' '{print $2}' 
-        rm ${FILE} 2> /dev/null
-    else
-        echo "Error installing $1 - see ${FILE}"
-    fi
-}
 
 function pip_install {
     FILE=logs/pip/${1}.log 

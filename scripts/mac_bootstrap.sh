@@ -6,9 +6,12 @@ set -o pipefail
 IFS=$'\n\t'
 
 
+source ${PROGDIR}/include.sh
+
+ensure_root
+
 # Before starting anything, let's make sure XCode Command Line Utils are
 # installed
-
 xcode-select --install
 
 # This is needed for greadlink used in a bit. So first thing let's install
@@ -18,6 +21,21 @@ port install coreutils
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(greadlink -m $(dirname $0))
 readonly ARGS="$@"
+readonly VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
+
+function port_install {
+    FILE=logs/port/${1}.log 
+    port install -f $1 2> ${FILE} > ${FILE}
+    if [ $? -eq 0 ]
+    then
+        echo -n "port - installed $1 "
+        port list $1 2> /dev/null | awk -F' ' '{print $2}' 
+        rm ${FILE} 2> /dev/null
+    else
+        echo "Error installing $1 - see ${FILE}"
+    fi
+}
+
 
 ensure_log_directories_exist() {
     mkdir -p logs/pip
@@ -80,43 +98,8 @@ install_bash() {
     hr
 }
 
-install_python_libraries() {
-    for P in \
-        pip \
-        virtualenv \
-        ipython \
-        pep8 \
-        flake8 \
-        jedi \
-        pymongo \
-        pygments \
-        zmq \
-        nose \
-        tz \
-        flask
-    do
-        port_install py${PY}-${P}
-    done
-    hr
-}
-
-install_python_data_libraries() {
-    for P in \
-        scipy \
-        numpy \
-        sympy \
-        pandas \
-        matplotlib \
-        scikit-learn \
-        nltk
-    do
-        port_install py${PY}-${P}
-    done
-    hr
-}
-
 install_essentials() {
-    for P in macvim git mercurial
+    for P in macvim git
     do
         port_install ${P}
     done
@@ -132,18 +115,6 @@ install_utils() {
     hr
 }
 
-install_duti() {
-    echo "Installing duti..."
-    pushd ../utils/duti
-    autoconf ./configure.ac > configure 2> /dev/null
-    chmod +x configure > /dev/null 2> /dev/null
-    ./configure > /dev/null 2> /dev/null
-    make > /dev/null 2> /dev/null
-    make install > /dev/null 2> /dev/null
-    make clean > /dev/null 2> /dev/null
-    popd
-}
-
 install_fonts() {
     echo "Installing fonts..."
     cp ../fonts/*/*.ttf /Library/Fonts/
@@ -151,17 +122,14 @@ install_fonts() {
 }
 
 main() {
-    source ${PROGDIR}/include.sh
     ensure_log_directories_exist
     install_hr
     install_bash
     check_port_variants
-    install_python_libraries
     select_mac_port_variants
     create_shortcuts
     install_essentials
     install_utils
-    install_duti
     install_fonts
 }
 
