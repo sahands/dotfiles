@@ -31,9 +31,6 @@
 [submodule "config/vim/bundle/colorschemes"]
 	path = config/vim/bundle/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
-[submodule "utils/duti"]
-	path = utils/duti
-	url = https://github.com/moretension/duti.git
 [submodule "utils/hr"]
 	path = utils/hr
 	url = git@github.com:sahands/hr.git
