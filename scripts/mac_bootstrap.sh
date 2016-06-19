@@ -5,7 +5,6 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
-
 source ${PROGDIR}/include.sh
 
 ensure_root
@@ -36,22 +35,13 @@ function port_install {
     fi
 }
 
-
 ensure_log_directories_exist() {
     mkdir -p logs/pip
     mkdir -p logs/port
     rm logs/*/*.log
 }
 
-install_hr() {
-    echo "Installing hr..."
-    pushd ../utils/hr
-    make install > /dev/null 2> /dev/null
-    popd
-}
-
 check_port_variants() {
-    hr
     echo "Checking port variants."
     for VARIANT in bash_completion zsh_completion python${PY} svn ruby${RUBY} gem
     do
@@ -65,11 +55,9 @@ check_port_variants() {
     done
     echo "Active port variants:"
     cat ${VARIANTS_FILE}
-    hr
 }
 
 select_mac_port_variants() {
-    hr
     port select --set ruby ruby${RUBY}
     port select --set python python${PY}
     port select --set pip pip${PY}
@@ -78,7 +66,6 @@ select_mac_port_variants() {
     port select --set virtualenv virtualenv${PY}
     port select --set pyflakes py${PY}-pyflakes
     port select --set py-sympy py${PY}-sympy
-    hr
 }
 
 create_shortcuts() {
@@ -87,7 +74,6 @@ create_shortcuts() {
     rm /opt/local/bin/pygmentize
     ln -s /opt/local/bin/flake8-${PYV} /opt/local/bin/flake8
     ln -s /opt/local/bin/pygmentize-${PYV} /opt/local/bin/pygmentize
-    hr
 }
 
 install_bash() {
@@ -95,7 +81,6 @@ install_bash() {
     do
         port_install ${P}
     done
-    hr
 }
 
 install_essentials() {
@@ -103,7 +88,6 @@ install_essentials() {
     do
         port_install ${P}
     done
-    hr
 }
 
 install_utils() {
@@ -112,7 +96,6 @@ install_utils() {
     do
         port_install ${P}
     done
-    hr
 }
 
 install_fonts() {
@@ -123,7 +106,6 @@ install_fonts() {
 
 main() {
     ensure_log_directories_exist
-    install_hr
     install_bash
     check_port_variants
     select_mac_port_variants
