@@ -5,17 +5,14 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
+readonly PROGNAME=$(basename $0)
+readonly PROGDIR=$(dirname $0)
+readonly ARGS="$@"
+
 # Before starting anything, let's make sure XCode Command Line Utils are
 # installed
 xcode-select --install
 
-# This is needed for greadlink used in a bit. So first thing let's install
-# coreutils.
-port install coreutils
-
-readonly PROGNAME=$(basename $0)
-readonly PROGDIR=$(greadlink -m $(dirname $0))
-readonly ARGS="$@"
 readonly VARIANTS_FILE="/opt/local/etc/macports/variants.conf"
 
 function port_install {

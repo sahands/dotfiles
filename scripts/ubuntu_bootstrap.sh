@@ -6,7 +6,7 @@ set -o pipefail
 IFS=$'\n\t'
 
 readonly PROGNAME=$(basename $0)
-readonly PROGDIR=$(greadlink -m $(dirname $0))
+readonly PROGDIR=$(dirname $0)
 readonly ARGS="$@"
 
 source ${PROGDIR}/include.sh
