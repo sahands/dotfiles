@@ -5,13 +5,12 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
-source ${PROGDIR}/include.sh
-
-ensure_root
-
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(greadlink -m $(dirname $0))
 readonly ARGS="$@"
+
+source ${PROGDIR}/include.sh
+ensure_root
 
 ensure_log_directories_exist() {
     mkdir -p logs/pip

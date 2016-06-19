@@ -5,10 +5,6 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
-source ${PROGDIR}/include.sh
-
-ensure_root
-
 # Before starting anything, let's make sure XCode Command Line Utils are
 # installed
 xcode-select --install
@@ -43,7 +39,7 @@ ensure_log_directories_exist() {
 
 check_port_variants() {
     echo "Checking port variants."
-    for VARIANT in bash_completion zsh_completion python${PY} svn ruby${RUBY} gem
+    for VARIANT in bash_completion python${PY} svn ruby${RUBY} gem
     do
         grep "^+${VARIANT}$" ${VARIANTS_FILE} -q
         if [ $? -eq 1 ]
@@ -55,6 +51,20 @@ check_port_variants() {
     done
     echo "Active port variants:"
     cat ${VARIANTS_FILE}
+}
+
+install_python_libraries() {
+    for P in \
+        pip \
+        virtualenv \
+        ipython \
+        pep8 \
+        flake8 \
+        jedi \
+        pygments
+    do
+        port_install py${PY}-${P}
+    done
 }
 
 select_mac_port_variants() {
@@ -77,7 +87,7 @@ create_shortcuts() {
 }
 
 install_bash() {
-    for P in bash bash-completion zsh zsh-completions python${PY} ruby${RUBY}
+    for P in bash bash-completion python${PY} ruby${RUBY}
     do
         port_install ${P}
     done
@@ -91,8 +101,7 @@ install_essentials() {
 }
 
 install_utils() {
-    for P in wget sudo grep man coreutils ispell s3cmd mongodb rlwrap screen \
-        cmake ctags pdf2svg ImageMagick gnupg
+    for P in wget grep s3cmd rlwrap screen cmake gnupg
     do
         port_install ${P}
     done
@@ -105,14 +114,20 @@ install_fonts() {
 }
 
 main() {
+    source ${PROGDIR}/include.sh
+    ensure_root
+
     ensure_log_directories_exist
-    install_bash
     check_port_variants
-    select_mac_port_variants
-    create_shortcuts
+
+    install_bash
+    install_python_libraries
     install_essentials
     install_utils
     install_fonts
+
+    create_shortcuts
+    select_mac_port_variants
 }
 
 main
