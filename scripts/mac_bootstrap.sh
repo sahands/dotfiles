@@ -71,7 +71,7 @@ select_mac_port_variants() {
     port select --set ruby ruby${RUBY}
     port select --set python python${PY}
     port select --set pip pip${PY}
-    port select --set ipython ipython${PY}
+    port select --set ipython ${PY}-ipython
     port select --set pep8 pep8${PY}
     port select --set virtualenv virtualenv${PY}
     port select --set pyflakes py${PY}-pyflakes
@@ -101,7 +101,15 @@ install_essentials() {
 }
 
 install_utils() {
-    for P in wget grep s3cmd rlwrap screen cmake gnupg
+    for P in   \
+        cmake  \
+        gnupg  \
+        grep   \
+        rlwrap \
+        s3cmd  \
+        screen \
+        sudo   \
+        wget
     do
         port_install ${P}
     done
@@ -110,7 +118,7 @@ install_utils() {
 install_fonts() {
     echo "Installing fonts..."
     cp ../fonts/*/*.ttf /Library/Fonts/
-    cp ../fonts/*/*.otf /Library/Fonts/
+    # cp ../fonts/*/*.otf /Library/Fonts/
 }
 
 main() {
