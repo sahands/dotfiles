@@ -5,6 +5,8 @@ set -u
 set -o pipefail
 IFS=$'\n\t'
 
+readonly PROGDIR=$(dirname $0)
+
 # Version of Python to use
 # readonly PY=34
 # readonly PYV="3.4"
@@ -26,15 +28,15 @@ function pip_install {
 
 install_python_libraries() {
     for P in \
-        pip \
         virtualenv \
         ipython \
         pep8 \
         flake8 \
         jedi \
-        pygments
+        pygments \
+        pelican
     do
-        port_install py${PY}-${P}
+        pip_install ${P}
     done
 }
 
@@ -46,7 +48,6 @@ ensure_log_directories_exist() {
 main() {
     source ${PROGDIR}/include.sh
     ensure_log_directories_exist
-    check_port_variants
     install_python_libraries
 }
 
