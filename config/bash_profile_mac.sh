@@ -5,21 +5,18 @@ alias vimdiff='mvimdiff -v'
 # mvim instead of vim
 export EDITOR="mvim -v"
 
-# Use MacPorts bash instead of /bin/bash
-export SHELL="/opt/local/bin/bash"
-export BASH="/opt/local/bin/bash"
+# Use Homebrew bash instead of /bin/bash
+export SHELL="/usr/local/bin/bash"
+export BASH="/usr/local/bin/bash"
 
 # Enable colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 ### AWS RDS toolbelt related variables
 export AWS_RDS_HOME="/usr/local/amazonrds"
 export JAVA_HOME="/Library/Java/Home"
 export PATH="${AWS_RDS_HOME}/bin:$PATH"
 
-# MacPorts Installer addition on 2013-08-31_at_18:02:08: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Homebrew bash completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion

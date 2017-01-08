@@ -1,29 +1,27 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" ----------  Start of Plug setup code -------------
 
-" Vundle is the plugin manager used
-Plugin 'gmarik/vundle'                         " Let Vundle manage Vundle, required
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
 
 " File navigation plugins
-" Plugin 'wincent/Command-T'                   " Open files with ease
-Plugin 'kien/ctrlp.vim'                        " Open files, buffers, tags, etc with ease
-Plugin 'scrooloose/nerdtree'                   " File system browsing
+" Plugin 'wincent/Command-T'                     " Open files with ease
+" Plugin 'kien/ctrlp.vim'                        " Open files, buffers, tags, etc with ease
+" Plugin 'scrooloose/nerdtree'                   " File system browsing
 
 " Undo/Redo and Copy/Paste plugins
-Plugin 'sjl/gundo.vim'                         " Explore the undo tree
-Plugin 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
+Plug 'sjl/gundo.vim'                         " Explore the undo tree
+Plug 'maxbrunsfeld/vim-yankstack'            " Cycle back and forth in the copy/paste history
 
 " Multi-purpose and programming related plugins
-Plugin 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
-Plugin 'scrooloose/syntastic'                  " Syntax checker for a variety of files, including Python
-Plugin 'tomtom/tcomment_vim'                   " Comment lines
-Plugin 'tpope/vim-fugitive'                    " Git integration
-Plugin 'mhinz/vim-signify'                     " Gutter for version control systems
-Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
+Plug 'scrooloose/syntastic'                  " Syntax checker for a variety of files, including Python
+Plug 'tomtom/tcomment_vim'                   " Comment lines
+Plug 'mhinz/vim-signify'                     " Gutter for version control systems
+Plug 'rking/ag.vim'                          " Fast 'grep -r' replacement (command 'Ag')
+" Plug 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
+" Plug 'tpope/vim-fugitive'                    " Git integration
+" Plug 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
 
 " JavaScript/CoffeeScript/Etc. specific
 " Plugin 'walm/jshint.vim'                       " Run jshint on js files
@@ -39,34 +37,31 @@ Plugin 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of f
 
 " LaTeX/MarkDown/Rst specific
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
-Plugin 'plasticboy/vim-markdown'               " Markdown support
-Plugin 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
-Plugin 'sahands/vim-rst-headers'               " Format RST file headers
+Plug 'plasticboy/vim-markdown'               " Markdown support
+Plug 'sahands/vim-rst-headers'               " Format RST file headers
+" Plug 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
 
 " HTML/CSS/Jinja/Etc. Related
-Plugin 'ap/vim-css-color'                      " CSS Colors
-Plugin 'mattn/emmet-vim'                       " Quickly edit HTML by typing tags (e.g. 'div>ul>li*3' and typing '<c-y>,')
-Plugin 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
-Plugin 'tristen/vim-sparkup'                   " Insert HTML using CSS style selectors
+Plug 'ap/vim-css-color'                      " CSS Colors
+Plug 'mattn/emmet-vim'                       " Quickly edit HTML by typing tags (e.g. 'div>ul>li*3' and typing '<c-y>,')
+Plug 'tmhedberg/matchit'                     " % will jump to matching HTML tag, and others
 "
 " Movement and selection plugins
-Plugin 'vim-scripts/camelcasemotion'           " CamelCaseMotion
-Plugin 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
-Plugin 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
-Plugin 'Lokaltog/vim-easymotion'               " Move around with ease
+Plug 'wellle/targets.vim'                    " More targets such as da, (delete after ,) or din)
+Plug 'Lokaltog/vim-easymotion'               " Move around with ease
+" Plug 'vim-scripts/loremipsum'                " Lorem Ipsum generator.
+" Plug 'vim-scripts/camelcasemotion'           " CamelCaseMotion
 
 " Text modification plugins
-Plugin 'AndrewRadev/splitjoin.vim'             " Split join: gS to split, gJ to join
+Plug 'AndrewRadev/splitjoin.vim'             " Split join: gS to split, gJ to join
 " Plugin 'godlygeek/tabular'                     " Tabularize lines
-Plugin 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
-Plugin 'tpope/vim-surround'                    " Surround text with stuff
+Plug 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
+Plug 'tpope/vim-surround'                    " Surround text with stuff
 
 " Color schemes
-Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
-
+" Plug 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
 
 " Plugins for possible future use
-
 " Plugin 'tpope/vim-characterize'              " Enable modern, unicode based characterization
 " Plugin 'leafgarland/typescript-vim'          " TypeScript support
 " Plugin 'sjl/threesome.vim'                   " Merge tool
@@ -87,8 +82,9 @@ Plugin 'sahands/vim-colors-solarized'          " Use customized copy of altercat
 " Plugin 'sirver/ultisnips'                    " Snippets
 " Plugin 'honza/vim-snippets'                  " Snippets repository
 
-filetype plugin indent on                      " required by vundle
-" ----------  End of Vundle setup code -------------
+" Initialize plugin system
+call plug#end()
+" ----------  End of Plug setup code -------------
 
 " Basic settings
 syntax on
