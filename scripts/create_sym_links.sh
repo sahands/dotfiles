@@ -6,6 +6,9 @@ set -o pipefail
 IFS=$'\n\t'
 
 if [[ `uname` == 'Darwin' ]]; then
+    command -v greadlink >/dev/null 2>&1 || {
+        echo >&2 "ERROR: Need greadlink. Install coreutils first."; exit 1;
+    }
     readonly PROGNAME=$(basename $0)
     readonly PROGDIR=$(greadlink -m $(dirname $0))
     readonly CONFIGPATH=`greadlink -f $PROGDIR/../config`
@@ -14,6 +17,8 @@ else
     readonly PROGDIR=$(readlink -m $(dirname $0))
     readonly CONFIGPATH=`readlink -f $PROGDIR/../config`
 fi
+
+echo "Config files path = ${CONFIGPATH}"
 
 # Options
 readonly BACKUP="YES"
