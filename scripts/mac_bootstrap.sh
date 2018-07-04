@@ -25,7 +25,7 @@ ensure_log_directories_exist() {
 }
 
 install_essentials() {
-    for P in bash bash-completion macvim git coreutils
+    for P in bash bash-completion macvim git hg coreutils
     do
         brew_install ${P}
     done

@@ -6,9 +6,9 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/plugged')
 
 " File navigation plugins
-" Plugin 'wincent/Command-T'                     " Open files with ease
-" Plugin 'kien/ctrlp.vim'                        " Open files, buffers, tags, etc with ease
-" Plugin 'scrooloose/nerdtree'                   " File system browsing
+" Plug 'wincent/Command-T'                     " Open files with ease
+" Plug 'kien/ctrlp.vim'                        " Open files, buffers, tags, etc with ease
+" Plug 'scrooloose/nerdtree'                   " File system browsing
 
 " Undo/Redo and Copy/Paste plugins
 Plug 'sjl/gundo.vim'                         " Explore the undo tree
@@ -21,22 +21,22 @@ Plug 'mhinz/vim-signify'                     " Gutter for version control system
 Plug 'rking/ag.vim'                          " Fast 'grep -r' replacement (command 'Ag')
 " Plug 'airblade/vim-gitgutter'                " Add a column to the left with what's been added, changed, etc.
 " Plug 'tpope/vim-fugitive'                    " Git integration
-" Plug 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
+Plug 'Valloric/YouCompleteMe'                " Autocomplete for all sorts of files
 
 " JavaScript/CoffeeScript/Etc. specific
-" Plugin 'walm/jshint.vim'                       " Run jshint on js files
-" Plugin 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
-" Plugin 'kchmck/vim-coffee-script'              " CoffeeScript support
-" Plugin 'digitaltoad/vim-jade'                  " Support jade files
-" Plugin 'jelera/vim-javascript-syntax'          " JavaScript syntax
-" Plugin 'maksimr/vim-jsbeautify'                " Format JS code
-" Plugin 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
-" Plugin 'elzr/vim-json'                         " Better JSON support
-" Plugin 'moll/vim-node'                         " Node.js support
-" Plugin 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
+" Plug 'walm/jshint.vim'                       " Run jshint on js files
+" Plug 'alunny/pegjs-vim'                      " Syntax highlighting for pegjs files
+" Plug 'kchmck/vim-coffee-script'              " CoffeeScript support
+" Plug 'digitaltoad/vim-jade'                  " Support jade files
+" Plug 'jelera/vim-javascript-syntax'          " JavaScript syntax
+Plug 'maksimr/vim-jsbeautify'                " Format JS code
+" Plug 'heavenshell/vim-jsdoc'                 " jsdoc support (:JsDoc or C-l)
+" Plug 'elzr/vim-json'                         " Better JSON support
+" Plug 'moll/vim-node'                         " Node.js support
+" Plug 'vitaly/vim-syntastic-coffee'           " Syntastic support coffeescript
 
 " LaTeX/MarkDown/Rst specific
-" Plugin 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
+" Plug 'LaTeX-Box-Team/LaTeX-Box'              " Lightweight LaTex plugin
 Plug 'plasticboy/vim-markdown'               " Markdown support
 Plug 'sahands/vim-rst-headers'               " Format RST file headers
 " Plug 'greyblake/vim-preview'                 " Preview for rst, html, md, etc.
@@ -54,7 +54,7 @@ Plug 'Lokaltog/vim-easymotion'               " Move around with ease
 
 " Text modification plugins
 Plug 'AndrewRadev/splitjoin.vim'             " Split join: gS to split, gJ to join
-" Plugin 'godlygeek/tabular'                     " Tabularize lines
+" Plug 'godlygeek/tabular'                     " Tabularize lines
 Plug 'tommcdo/vim-lion'                      " Similar to Tabular but easier to use: gl and gL
 Plug 'tpope/vim-surround'                    " Surround text with stuff
 
@@ -62,25 +62,25 @@ Plug 'tpope/vim-surround'                    " Surround text with stuff
 " Plug 'sahands/vim-colors-solarized'          " Use customized copy of altercation/solarized
 
 " Plugins for possible future use
-" Plugin 'tpope/vim-characterize'              " Enable modern, unicode based characterization
-" Plugin 'leafgarland/typescript-vim'          " TypeScript support
-" Plugin 'sjl/threesome.vim'                   " Merge tool
-" Plugin 'majutsushi/tagbar'                   " Source code structure
-" Plugin 'valloric/MatchTagAlways'             " Highlight the HTML tag you are currently in.
-" Plugin 'vim-scripts/pep8'                    " Not needed with syntastic
-" Plugin 'klen/python-mode.git'                " Python development plugin
-" Plugin 'Rykka/riv.vim'                       " For rst files... Seems a bit buggy right now
-" Plugin 'vim-scripts/taglist.vim'             " Source code structure browsing
-" Plugin 'marijnh/tern_for_vim'                " Better autocomplete for JavaScript
-" Plugin 'bling/vim-airline'                   " Better status line
-" Plugin 'altercation/vim-colors-solarized'    " Great color scheme
-" Plugin 'flazz/vim-colorschemes'              " Using solarized for now
-" Plugin 'terryma/vim-expand-region'           "
-" Plugin 'nvie/vim-flake8'                     " Same as pep8
-" Plugin 'lepture/vim-jinja'                   " Jinja2 support
-" Plugin 'justinmk/vim-sneak'                  " Alternative to EasyMotion
-" Plugin 'sirver/ultisnips'                    " Snippets
-" Plugin 'honza/vim-snippets'                  " Snippets repository
+" Plug 'tpope/vim-characterize'              " Enable modern, unicode based characterization
+" Plug 'leafgarland/typescript-vim'          " TypeScript support
+" Plug 'sjl/threesome.vim'                   " Merge tool
+" Plug 'majutsushi/tagbar'                   " Source code structure
+" Plug 'valloric/MatchTagAlways'             " Highlight the HTML tag you are currently in.
+" Plug 'vim-scripts/pep8'                    " Not needed with syntastic
+" Plug 'klen/python-mode.git'                " Python development plugin
+" Plug 'Rykka/riv.vim'                       " For rst files... Seems a bit buggy right now
+" Plug 'vim-scripts/taglist.vim'             " Source code structure browsing
+" Plug 'marijnh/tern_for_vim'                " Better autocomplete for JavaScript
+" Plug 'bling/vim-airline'                   " Better status line
+" Plug 'altercation/vim-colors-solarized'    " Great color scheme
+" Plug 'flazz/vim-colorschemes'              " Using solarized for now
+" Plug 'terryma/vim-expand-region'           "
+Plug 'nvie/vim-flake8'                     " Same as pep8
+" Plug 'lepture/vim-jinja'                   " Jinja2 support
+" Plug 'justinmk/vim-sneak'                  " Alternative to EasyMotion
+" Plug 'sirver/ultisnips'                    " Snippets
+" Plug 'honza/vim-snippets'                  " Snippets repository
 
 " Initialize plugin system
 call plug#end()
@@ -155,7 +155,7 @@ autocmd BufNewFile,BufRead *.md setlocal spell spelllang=en_ca
 autocmd Filetype rst setlocal spell spelllang=en_ca
 
 if has("gui_running")
-    set guifont=Droid\ Sans\ Mono:h11
+    set guifont=Droid\ Sans\ Mono:h13
     colorscheme hybrid
 
     " set background=dark
